@@ -1,12 +1,10 @@
-site_name: Dashboard Bauindustrie
-site_description: Dokumentation für das Projektseminar
-repo_url: https://github.com/just1130/dashboardDoc
+site_name: PDS Handelsregister Gruppe 5
+site_description: Dokumentation PDS Handelsregister Gruppe 5
+repo_url: https://github.com/joschikahn/DokuPdsHandelsregisterGroup5
 theme: readthedocs
 docs_dir: 'docs'
 nav:
-    - 'Einleitung': 'index.md'
-    - 'Handbuch' : 'handbuch.md'
-    - 'Forecast and Scraping' : 'forecast_and_scraping.md'
-    - 'Dynamic Dashboard' : 'dynamicDashboard.md'
-    - 'Dashboard Frontend' : 'dashboardFrontend.md'
-
+    - 'Grundlagen': 'index.md'
+    - 'App' : 'app.md'
+    - 'Vorbereitung' : 'vorbereitung.md'
+    
