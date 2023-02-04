@@ -1,8 +1,4 @@
 # Frontend 
-Das Softwaremodul DashboardFrontend besteht aus einem React Frontend. Somit stellt dieses Modul das Userinterface unseres Systems dar. Insgesamt werden in diesem Modul die visuellen Möglichkeiten für die Betrachtung der Daten, die Erstellung von Reports, die Userverwaltung und die Anpassung von Prognosen abgebildet.
-
-Wir starten in der Ordnerstruktur
-dashboardFrontend -> dashboard -> src
 
 ## Components
 ### Charts
