@@ -1,24 +1,29 @@
 # Vorbereitung & verworfene Ansätze
 
-## Notebook 1
+## xml_data_extraction
 
 ### Vorbereitung
 
 ### Verworfene Ansätze
 
 
-## Notebook 2
+## html_data_extraction
 
 ### Vorbereitung
 
 ### Verworfene Ansätze
 
 
-## Notebook 3
+## ocr_data_extraction
 
 ### Vorbereitung
 
 ### Verworfene Ansätze
+
+## sonstige_aufbereitung
+
+
+
 
 
 

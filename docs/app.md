@@ -1,7 +1,6 @@
 # App
 
 
-Das ist ein Test 
 
 ## Notebook
 
