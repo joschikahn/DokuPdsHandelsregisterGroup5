@@ -1,0 +1,12 @@
+site_name: Dashboard Bauindustrie
+site_description: Dokumentation für das Projektseminar
+repo_url: https://github.com/just1130/dashboardDoc
+theme: readthedocs
+docs_dir: 'docs'
+nav:
+    - 'Einleitung': 'index.md'
+    - 'Handbuch' : 'handbuch.md'
+    - 'Forecast and Scraping' : 'forecast_and_scraping.md'
+    - 'Dynamic Dashboard' : 'dynamicDashboard.md'
+    - 'Dashboard Frontend' : 'dashboardFrontend.md'
+
