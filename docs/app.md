@@ -6,12 +6,21 @@ Datenextraktion und -aufbereitung finden in diesem Notebook nicht statt, sondern
 
 ## Notebook
 
-### Funktion: "Dateisuche in TIF-Dateien
+### Funktion: Dateisuche in TIF-Dateien
 Die im Notebook "Reading TIF-Files by OCR" in "VorbereitungVerworfenerCode/Vorbereitung" ausgelesenen Informationen werden hier verwendet um herraus zu finden, ob in den TIF-Dateien noch zusätzliche Informationen zu einem Unternehmen verfügbar sind. Wenn dies der Fall ist, kann die Datei mit einem Klick heruntergeladen und die Information ausgelesen werden.
 
-### Funktion: "Branchenklassifikation nach WZ-2008"
+### Funktion: Branchenklassifikation nach WZ-20008
 
-### Funktion: "Chatbot"
+### Funktion: Q-A-Chatbot
+
+### Funktion: Suchen nach Ähnlichkeit 
+
+### Funktion: Suche nach Umkreis 
+
+### Funktion: Firmen-Netzwerk Graph
+
+### Funktion: Darstellung Firmendetails
+
 
 
 ## Dateien
