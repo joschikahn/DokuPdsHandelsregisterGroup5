@@ -57,15 +57,17 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
    * Sehr feint: 200 Cluster 
 
   Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
-  ![hier gezeigt](https://media.giphy.com/media/h9SgiKNGf6DldceSKr/giphy.gif). Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
+  ![hier gezeigt](https://media.giphy.com/media/h9SgiKNGf6DldceSKr/giphy.gif). 
+  Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
 
 ####  Evaluation und Ausblick 
   6753 mit Geschäftszweck sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
-  * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
+* Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
 
-  * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. 
-  
-  Passender Zusammenhang feststellbar: Clustering nach Keywords -> WordCloud-Darstellung. 
+* Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar.  Passender Zusammenhang feststellbar: Clustering nach Keywords -> WordCloud-Darstellung. 
+
+
+
 
 
 
