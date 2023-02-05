@@ -52,17 +52,24 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 
   Entsprechend 1.) oder 2.) werden dafür TF-IDF-Vektoren gebildet (sklearn tfidf vectorizer). Anschließend wird darauf der k-Means-Algorithmus angewendet.
   Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
-   * Grob : 5 Cluster, davon ein n.a Cluster für Firmen ohne Geschäftszweck
-   * Mittel: 20 Cluster (auch ein n.a. Cluster)
-   * Fein: 100 Cluster (auch ein n.a. Cluster)
-   * Sehr feint: 200 Cluster (auch ein n.a. Cluster)
+   * Grob : 5 Cluster
+   * Mittel: 20 Cluster 
+   * Fein: 100 Cluster
+   * Sehr feint: 200 Cluster 
 
-  Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagsfunktion für ähnliche Unternehemen: 
+  Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehemen: 
   ![hier gezeigt](https://media.giphy.com/media/2WP1QdRnZJ9kYzuOdG/giphy.gif). Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
 
-
-
   ####  Evaluation und Ausblick 
+  6753 mit Geschäftszweck sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
+  * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
+
+  * Cluster sind nicht immer logisch nachvollziebar. Bei gefundenen Cluster ist es teilweise nicht logisch nachvollziehbar, wie der zusammenhang zwischen den Clustern ist.
+  
+  Passender Zusammenhang feststellbar: Clustering nach Keywords -> WordClouddarstellung. 
+
+  Kein Erkennbarer Zusammenhang feststellbar:   
+ 
 
 
 
