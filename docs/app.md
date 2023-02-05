@@ -35,8 +35,6 @@ Eine Person wird gesucht und es werden seine Rollen und Beteiligungen an verschi
 Übersicht mit allen relevanten Information zu einer ausgewählten Firma inklusive Ereignisse, klassifizierten Branchenbezeichnungen. 
 
 
-
-
 ## Dateien
 
 ### OCR.csv
