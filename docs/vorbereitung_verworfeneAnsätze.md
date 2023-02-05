@@ -8,7 +8,6 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 ### Notebook: Zero-Shot-Classification Branche nach WZ-2008
 
 
-
 ## Verworfene Ansätze
 
 ### Notebook: VERWORFEN Reading TIF- and PDF-Files by OCR
