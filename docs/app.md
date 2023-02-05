@@ -6,17 +6,19 @@ Datenextraktion und -aufbereitung finden in diesem Notebook nicht statt, sondern
 
 ## Notebook
 
-
-
+### Funktion: "Dateisuche in TIF-Dateien
+Die im Notebook "Reading TIF-Files by OCR" in "VorbereitungVerworfenerCode/Vorbereitung" ausgelesenen Informationen werden hier verwendet um herraus zu finden, ob in den TIF-Dateien noch zusätzliuche Informationen zu einem Unternehmen verfügbar sind. Wenn dies der Fall ist, kann die Datei mit einem Klick heruntergeladen und die Information ausgelesen werden.
 
 
 ## Dateien
 
-### ....csv
-Inhalt der CSV... stammmt aus Notebook X
+### OCR.csv
+Diese CSV-Datei repräsentiert folgendes Dataframe "bild ocr"
+
+In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. Die Satei stammt aus dem Notebook 
 
 ### ....csv
-Inhalt der CSV... stammmt aus Notebook X
+Inhalt der CSV... stammmt aus Notebook "Reading TIF-Files by OCR" in "VorbereitungVerworfenerCode/Vorbereitung"
 
 ### ....csv
 Inhalt der CSV... stammmt aus Notebook X

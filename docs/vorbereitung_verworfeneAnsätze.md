@@ -1,3 +1,35 @@
+## Vorbereitung
+
+### Notebook: Reading TIF-Files by OCR
+In diesem Notebook werden alle TIF-Datein mit Hilfe von OCR ausgelesen und einem Dataframe df gespeichert. Dieses wurde exportiert um es in der App für die Funktion "Dateisuche in TIF-Dateien" zu nutzen.
+
+
+## Verworfene Ansätze
+
+### Notebook: VERWORFEN Reading TIF- and PDF-Files by OCR
+ In diesem Notebook wurde versucht alle TIF- & PDF-Datein mit Hilfe von OCR ausgelesen. Der Ansatz wurde verworfen weil es Probleme bei Installation & Nutzung der benötigten packages auf dem lokalen Winows System gab. Bei, Ausführen in Google Colab, sollte der Code funktionieren und somit nicht nur TIF-, sondern auch PDF-Dateien ausgelesen werden können.
+
+
+## Dateien
+
+### OCR.csv
+Diese CSV-Datei repräsentiert folgendes Dataframe "bild ocr"
+
+In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. Die Satei stammt aus dem Notebook 
+
+### ....csv
+Inhalt der CSV... stammmt aus Notebook X
+
+### ....csv
+Inhalt der CSV... stammmt aus Notebook X
+
+
+
+
+
+
+
+
 # Datenextraktion und -aufbereitung &  verworfene Ansätze 
 
 ## xml_data_extraction
@@ -48,13 +80,3 @@ Insbesondere gegenüber dem Zero-Shot-Classificator aus Abschnitt App ist dieser
 
 
 
-## Dateien
-
-### ....csv
-Inhalt der CSV... stammmt aus Notebook X
-
-### ....csv
-Inhalt der CSV... stammmt aus Notebook X
-
-### ....csv
-Inhalt der CSV... stammmt aus Notebook X
