@@ -12,10 +12,12 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
  In diesem Notebook wurde versucht alle TIF- & PDF-Dateien mit Hilfe von OCR ausgelesen. Der Ansatz wurde verworfen weil es Probleme bei Installation & Nutzung der benötigten packages auf dem lokalen Windows System gab. Bei, Ausführen in Google Colab, sollte der Code funktionieren und somit nicht nur TIF-, sondern auch PDF-Dateien ausgelesen werden können.
 
 ### Notebook: branchen_bestimmung_nlp_semantic_similarity
-  In diesem Notebook wird die Branchen-Klassifizierung aufgrund der semantischen Ähnlichkeit von Tätigkeitsbeschreibung und Branchenbezeichnung beschrieben.  
+
+  In diesem Notebook wird die Branchen-Klassifizierung aufgrund der semantischen Ähnlichkeit von Tätigkeitsbeschreibung und Branchenbezeichnung beschrieben.
+  Anwendungsfall: 
   
   Die üblichen WZ-2008 Brachen anhand der Beschreibung bwz. des Geschäftszweckes klassifizieren. 
-  Problem: Unübersichtliche Branchenlandschaft. Über 870 Subbrachen. Schwierig die passende Branche zu finden. 
+  Problem: Unübersichtliche Branchenlandschaft. Über 870 Subbranchen. Schwierig die passende Branche zu finden. 
   Auch für Filterfunktion praktisch. Freitextsuche eingeben. 
 
   * Semantische Freitextsuche nach Tätigkeit: *Drehen und Fräsen von Aluminiumprofilen* und Unternehmen aus dieser Branche erhalten
