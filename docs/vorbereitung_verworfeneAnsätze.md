@@ -12,33 +12,30 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
  In diesem Notebook wurde versucht alle TIF- & PDF-Dateien mit Hilfe von OCR ausgelesen. Der Ansatz wurde verworfen weil es Probleme bei Installation & Nutzung der benötigten packages auf dem lokalen Windows System gab. Bei, Ausführen in Google Colab, sollte der Code funktionieren und somit nicht nur TIF-, sondern auch PDF-Dateien ausgelesen werden können.
 
 ### Notebook: branchen_bestimmung_nlp_semantic_similarity
+  In diesem Notebook wird die Branchen-Klassifizierung aufgrund der semantischen Ähnlichkeit von Tätigkeitsbeschreibung und Branchenbezeichnung beschrieben.  
+  
+  Die üblichen WZ-2008 Brachen anhand der Beschreibung bwz. des Geschäftszweckes klassifizieren. 
+  Problem: Unübersichtliche Branchenlandschaft. Über 870 Subbrachen. Schwierig die passende Branche zu finden. 
+  Auch für Filterfunktion praktisch. Freitextsuche eingeben. 
 
-In diesem Notebook wird die Branchen-Klassifizierung aufgrund der semantischen Ähnlichkeit von Tätigkeitsbeschreibung und Branchenbezeichnung beschrieben.  
----
+  * Semantische Freitextsuche nach Tätigkeit: *Drehen und Fräsen von Aluminiumprofilen* und Unternehmen aus dieser Branche erhalten
+  * Neu hinzukommende Unternehmen können auf diese Art und Weise in die üblichen Branchen eingeordnet werden.
 
-Die üblichen WZ-2008 Brachen anhand der Beschreibung bwz. des Geschäftszweckes klassifizieren. 
-Problem: Unübersichtliche Branchenlandschaft. Über 870 Subbrachen. Schwierig die passende Branche zu finden. 
-Auch für Filterfunktion praktisch. Freitextsuche eingeben. 
+  Umsetzung / Vorgehen:
 
-* Semantische Freitextsuche nach Tätigkeit: *Drehen und Fräsen von Aluminiumprofilen* und Unternehmen aus dieser Branche erhalten
-* Neu hinzukommende Unternehmen können auf diese Art und Weise in die üblichen Branchen eingeordnet werden.
+  Preprocessing der Firmenbeschreibung: 
+    * Auf Nomen reduziert mit Spacy-Tokenizer 
+    * Wenig aussagekräftige Nomen und spezielle Rechtsbegriffe entfernt wie  "Unternehmen", "Gesellschaft", "Zweigniederlassung"
 
---- 
-Umsetzung / Vorgehen 
+  * Großes Spacy-Sprachmodel *de_core_news_lg* gleicht die Beschreibung mit den Branchenbezeichnungen aus dem WZ-2008 Register ab und ermittelt die semantische Ähnlichkeit anhand des similarity Wertes. Je nach Granularität werden die entsprechenden Branchenbezeichnungen als Vergleichsstring herangezogen (Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche). 
+    Die Beschreibung wird der Branche zugeordnet die den höchsten Similariy-Wert von allen aufweist. 
+    ![Branche Klassifizieren nach NLP](.\Data\branchen_klassifizierung_wz2008_semantic_similarity.gif) 
 
-* Preprocessing der Firmenbeschreibung: 
-  * Auf Nomen reduziert mit Spacy-Tokenizer 
-  * Wenig aussagekräftige Nomen und spezielle Rechtsbegriffe entfernt wie  "Unternehmen", "Gesellschaft", "Zweigniederlassung"
+  * Semantische Ähnlichkeit-Suche unabhängig von der Brancheneinteilung. 
+  * Ansatz über NLP-Similarity nicht in APP-Anwendung, da Zero-Shot-Classification meistens nachvollziehbarer Ergebnisse liefert. 
+  * Die semantische Ähnlichkeit-Suche unabhängig der gefunden Cluster, ist aufgrund sehr langer Rechenzeiten (circa 3 Minuten pro Anfrage) nur unter erheblichen Rechenzeitoptimierungen für eine größere Skalierung im Handelsregister denkbar. 
 
-* Großes Spacy-Sprachmodel *de_core_news_lg* gleicht die Beschreibung mit den Branchenbezeichnungen aus dem WZ-2008 Register ab und ermittelt die semantische Ähnlichkeit anhand des similarity Wertes. Je nach Granularität werden die entsprechenden Branchenbezeichnungen als Vergleichsstring herangezogen (Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche). 
-  Die Beschreibung wird der Branche zugeordnet die den höchsten Similariy-Wert von allen aufweist. 
-  ![Branche Klassifizieren nach NLP](.\Data\branchen_klassifizierung_wz2008_semantic_similarity.gif) 
-
-* Semantische Ähnlichkeit-Suche unabhängig von der Brancheneinteilung. 
-* Ansatz über NLP-Similarity nicht in APP-Anwendung, da Zero-Shot-Classification meistens nachvollziehbarer Ergebnisse liefert. 
-* Die semantische Ähnlichkeit-Suche unabhängig der gefunden Cluster, ist aufgrund sehr langer Rechenzeiten (circa 3 Minuten pro Anfrage) nur unter erheblichen Rechenzeitoptimierungen für eine größere Skalierung im Handelsregister denkbar. 
-* 
-Insbesondere gegenüber dem Zero-Shot-Classificator aus Abschnitt App ist dieser Ansatz bezüglich der Genauigkeit unterlegen.
+  Insbesondere gegenüber dem Zero-Shot-Classificator aus Abschnitt App ist dieser Ansatz bezüglich der Genauigkeit unterlegen.
 
 ### Notebook: k_means_clustering_nach_tfidf
 
