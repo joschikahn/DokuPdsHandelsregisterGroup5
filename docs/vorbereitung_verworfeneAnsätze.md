@@ -14,12 +14,9 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 ### Notebook: branchen_bestimmung_nlp_semantic_similarity
 
   In diesem Notebook wird die Branchen-Klassifizierung aufgrund der semantischen Ähnlichkeit von Tätigkeitsbeschreibung und Branchenbezeichnung beschrieben.
-  Anwendungsfall: 
+  Anwendungsfall: Die offizielle Wirtschaftszweige sind sehr unübersichtlich. Es gibt verschiedene Ebenen und über 870 Subbranchen mit verschiedenen Codes. 
+  Für viele Tätigkeitsbeschreibungen ist es schwierig, die passende Branche nach WZ-2008 zu finden. In diesem Notebook werden automatisch Vorschläge für eine korrekte Einteilung in die WZ-2008 Branchenbezeichnungen umgesetzt. 
   
-  Die üblichen WZ-2008 Brachen anhand der Beschreibung bwz. des Geschäftszweckes klassifizieren. 
-  Problem: Unübersichtliche Branchenlandschaft. Über 870 Subbranchen. Schwierig die passende Branche zu finden. 
-  Auch für Filterfunktion praktisch. Freitextsuche eingeben. 
-
   * Semantische Freitextsuche nach Tätigkeit: *Drehen und Fräsen von Aluminiumprofilen* und Unternehmen aus dieser Branche erhalten
   * Neu hinzukommende Unternehmen können auf diese Art und Weise in die üblichen Branchen eingeordnet werden.
 
