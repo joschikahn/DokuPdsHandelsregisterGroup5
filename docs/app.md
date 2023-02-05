@@ -28,11 +28,12 @@ Es lassen sich Unternehmen aus dem Handelsregister nach Umkreis suchen und werde
 
 ### Funktion: Netzwerk Graph
 
-Eine Person wird gesucht und es werden seine Rollen und Beteiligungen an verschiedenen Firmen als Netzwerk-Graph angezeigt. Vorbeietung und Umsetzung genauer unter [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze) dokumentiert. 
+Eine Person wird gesucht und es werden seine Rollen und Beteiligungen an verschiedenen Firmen als Netzwerk-Graph angezeigt. Vorbereitung und Umsetzung genauer unter [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze) dokumentiert. 
 
 ### Funktion: Darstellung Firmendetails
 
 Übersicht mit allen relevanten Information zu einer ausgewählten Firma inklusive Ereignisse, klassifizierten Branchenbezeichnungen. 
+
 
 
 
