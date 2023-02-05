@@ -5,8 +5,17 @@
 ### Notebook: Reading TIF-Files by OCR
 In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und einem Dataframe df gespeichert. Dieses wurde exportiert um es in der App für die Funktion "Dateisuche in TIF-Dateien" zu nutzen.
 
-### Notebook: Zero-Shot-Classification Branche nach WZ-2008
+### Notebook: Zero-Shot-Classification Branche WZ-2008
+In diesem Notebook wird die Umsetzung der Branchenklassifikation inkl. der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt. 
 
+#### Anwendungsfall 
+Branchen klassifizieren nach WZ-2008 üblichen Branchen, ...
+
+#### Umsetzung 
+Zero-Shot-Classification usw.
+
+#### Evaluation und Ausblick 
+Ausblick: Labelling möglich für deutliche Performanceverbesserung ...
 
 ## Verworfene Ansätze
 
@@ -45,10 +54,10 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 
 #### Umsetzung 
   Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
-   1. Nach unverarbeiteter Geschäftszweck 
-   2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
+  1. Nach unverarbeiteter Geschäftszweck 
+  2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
 
-  Entsprechend 1.) oder 2.) werden dafür TF-IDF-Vektoren gebildet (sklearn tfidf vectorizer). Anschließend wird darauf der k-Means-Algorithmus angewendet.
+  Entsprechend der Art werden dafür TF-IDF-Vektoren gebildet (sklearn tfidf vectorizer). Anschließend wird darauf der k-Means-Algorithmus angewendet.
   Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
    * Grob : 5 Cluster
    * Mittel: 20 Cluster 
@@ -61,11 +70,11 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 
 ####  Evaluation und Ausblick 
   6753 mit Geschäftszweck sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
-* Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
+  * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
 
-* Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar.  Passender Zusammenhang feststellbar: Clustering nach Keywords -> WordCloud-Darstellung. 
+  * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar.  Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen.  
 
-Ergänzende Information im Notebook als Kommentar / Markdown. 
+Ergänzende Information dazu im Notebook als Kommentar / Mark  down.
 
 
 ## Dateien
