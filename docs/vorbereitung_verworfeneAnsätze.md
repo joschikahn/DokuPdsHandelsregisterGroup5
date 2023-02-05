@@ -29,7 +29,6 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
   *  Die Funktionalität lässt sich am besten verdeutlichen, indem man *neue* Firma anhand einer Tätigkeitsbeschreibung in die WZ-2008 Norm einordnen möchte: ![Branche Klassifizieren nach NLP](https://media.giphy.com/media/5uDbVaE7cLIIqlVYkd/giphy.gif)
 
   * Darüber hinaus. Semantische Ähnlichkeit-Suche unabhängig von der Brancheneinteilung. 
-  
 
 #### Evaluation und Ausblick 
   Der Ansatz ist voll funktionsfähig und als Feature nutzbar. Die semantische Klassifizierung mit dem Spacy-Similarity-Abgleich ist dennoch nicht in APP-Anwendung integriert, da der Ansatz des Zero-Shot-Classification meistens nachvollziehbarer Ergebnisse liefert. 
@@ -66,9 +65,7 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 
 * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar.  Passender Zusammenhang feststellbar: Clustering nach Keywords -> WordCloud-Darstellung. 
 
-
-
-
+Ergänzende Information im Notebook als Kommentar / Markdown. 
 
 
 ## Dateien
