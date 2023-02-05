@@ -1,9 +1,13 @@
-# Vorbereitung & verworfener Code
+# Vorbereitung & verworfener Code:
 
 ## Vorbereitung
 
 ### Notebook: Reading TIF-Files by OCR
 In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und einem Dataframe df gespeichert. Dieses wurde exportiert um es in der App für die Funktion "Dateisuche in TIF-Dateien" zu nutzen.
+
+### Notebook: Zero-Shot-Classification für WZ-2008 Branchenklassifizierung: Zero-Shot-Classification
+
+
 
 ## Verworfene Ansätze
 
@@ -11,7 +15,7 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
  In diesem Notebook wurde versucht alle TIF- & PDF-Dateien mit Hilfe von OCR ausgelesen. Der Ansatz wurde verworfen weil es Probleme bei Installation & Nutzung der benötigten packages auf dem lokalen Windows System gab. Bei, Ausführen in Google Colab, sollte der Code funktionieren und somit nicht nur TIF-, sondern auch PDF-Dateien ausgelesen werden können.
 
 ### Notebook: branchen_bestimmung_nlp_semantic_similarity
-  In diesem Notebook wird die Branchen-Klassifizierung anhand der semantischen Ähnlichkeit von Tätigkeitsbeschreibung und Branchenbezeichnung beschrieben. Es verwendet die Datein branchen_bestimmung_base.csv
+  In diesem Notebook wird die Branchen-Klassifizierung anhand der semantischen Ähnlichkeit von Tätigkeitsbeschreibung und Branchenbezeichnung beschrieben. Es verwendet die Dateien branchen_bestimmung_base.csv
 
 #### Anwendungsfall: 
   Die offizielle Wirtschaftszweige sind sehr unübersichtlich. Es gibt verschiedene Ebenen und über 870 Subbranchen mit verschiedenen Codes. 
