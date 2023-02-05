@@ -41,32 +41,29 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 
   Dieses Notebook beschreibt ein Clustering Ansatz der Unternehmen mit einem unsupervised Learning Ansatz. Anhand des Geschäftszweckes werden die Firmen in verschiedener Granulariät in Cluster eingeteilt. 
 
-  #### Anwendungsfall
-    Inhaltliche ähnliche Unternehmen sollen in ein Cluster gemacht werden. *Welche ähnliche Unternehmen gibt es wie das Unternehmen "Müller Heizungsbau GmbH?".
-    Diese können dann beispielsweise als Vorschläge empfohlen werden. Vor allem mit Umkreissuche sehr interessant: z.B. *In der Umgebung gibt es folgende Ähnliche Unternehmen*
+#### Anwendungsfall
+  Inhaltliche ähnliche Unternehmen sollen in ein Cluster gemacht werden. *Welche ähnliche Unternehmen gibt es wie das Unternehmen "Müller Heizungsbau GmbH?".
+  Diese können dann beispielsweise als Vorschläge empfohlen werden. Vor allem mit Umkreissuche sehr interessant: z.B. *In der Umgebung gibt es folgende Ähnliche Unternehmen*
 
-  ### Umsetzung 
-    Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
-      1. Nach unverarbeiteter Geschäftszweck 
-      2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
+#### Umsetzung 
+  Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
+   1. Nach unverarbeiteter Geschäftszweck 
+   2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
 
-    Entsprechend 1.) oder 2.) werden dafür TF-IDF-Vektoren gebildet (sklearn tfidf vectorizer). Anschließend wird darauf der k-Means-Algorithmus angewendet.
-    Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
-      * Grob : 5 Cluster, davon ein n.a Cluster für Firmen ohne Geschäftszweck
-      * Mittel: 20 Cluster (auch ein n.a. Cluster)
-      * Fein: 100 Cluster (auch ein n.a. Cluster)
-      * Sehr feint: 200 Cluster (auch ein n.a. Cluster)
+  Entsprechend 1.) oder 2.) werden dafür TF-IDF-Vektoren gebildet (sklearn tfidf vectorizer). Anschließend wird darauf der k-Means-Algorithmus angewendet.
+  Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
+   * Grob : 5 Cluster, davon ein n.a Cluster für Firmen ohne Geschäftszweck
+   * Mittel: 20 Cluster (auch ein n.a. Cluster)
+   * Fein: 100 Cluster (auch ein n.a. Cluster)
+   * Sehr feint: 200 Cluster (auch ein n.a. Cluster)
 
-    Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. 
-    Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Ähnlichkeitsssuche wie in ![hier gezeigt] (
-    https://media.giphy.com/media/2WP1QdRnZJ9kYzuOdG/giphy.gif). Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
+  Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagsfunktion für ähnliche Unternehemen: 
+  ![hier gezeigt](https://media.giphy.com/media/2WP1QdRnZJ9kYzuOdG/giphy.gif). Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
+
 
 
   ####  Evaluation und Ausblick 
 
-
-
-    !
 
 
 
