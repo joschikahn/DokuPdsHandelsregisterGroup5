@@ -26,8 +26,7 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
   * Preprocessing:  Firmenbeschreibung Nomen reduziert mit Spacy-Tokenizer und wenig aussagekräftige Nomen und spezielle Rechtsbegriffe entfernt wie  *Unternehmen*, *Gesellschaft*, *Zweigniederlassung*
   *  Großes Spacy-Sprachmodel *de_core_news_lg* gleicht die Firmenbeschreibung mit den Branchenbezeichnungen aus dem WZ-2008 Register ab und ermittelt die semantische Ähnlichkeit anhand des similarity Wertes. Je nach Granularität werden die entsprechenden Branchenbezeichnungen als Vergleichsstring herangezogen Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche. 
   *  Die Organisation wird anhand der Beschreibung der best-passendste Branche zugeordnet (diejenige mit dem höchsten Similariy-Wert). Die top 5 Branchen werden zu der Organisation zugeordnet werden und damit alle Firmen klassifiziert werden. 
-  *  Die Funktionalität lässt sich am besten verdeutlichen, indem man *neue* Firma anhand einer Tätigkeitsbeschreibung in die WZ-2008 Norm einordnen möchte: 
-     ![Branche Klassifizieren nach NLP](Data\branchen_klassifizierung_wz2008_semantic_similarity.gif) 
+  *  Die Funktionalität lässt sich am besten verdeutlichen, indem man *neue* Firma anhand einer Tätigkeitsbeschreibung in die WZ-2008 Norm einordnen möchte: ![Branche Klassifizieren nach NLP](https://media.giphy.com/media/5uDbVaE7cLIIqlVYkd/giphy.gif)
 
   * Darüber hinaus. Semantische Ähnlichkeit-Suche unabhängig von der Brancheneinteilung. 
   
@@ -39,7 +38,7 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 
 ### Notebook: k_means_clustering_nach_tfidf
 
-  Dieses Notebook beschreibt ein Clustering Ansatz der Unternehmen mit einem unsupervised Learning Ansatz. Anhand des Geschäftszweckes werden die Firmen in verschiedener Granulariät in Cluster eingeteilt. 
+  Dieses Notebook beschreibt ein Clustering Ansatz der Unternehmen mit einem unsupervised Learning Ansatz. Anhand des Geschäftszweckes werden die Firmen in verschiedener Granularität in Cluster eingeteilt. 
 
 #### Anwendungsfall
   Inhaltliche ähnliche Unternehmen sollen in ein Cluster gemacht werden. *Welche ähnliche Unternehmen gibt es wie das Unternehmen "Müller Heizungsbau GmbH?".
@@ -57,21 +56,16 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
    * Fein: 100 Cluster
    * Sehr feint: 200 Cluster 
 
-  Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehemen: 
-  ![hier gezeigt](https://media.giphy.com/media/2WP1QdRnZJ9kYzuOdG/giphy.gif). Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
+  Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
+  ![hier gezeigt](https://media.giphy.com/media/h9SgiKNGf6DldceSKr/giphy.gif). Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
 
-  ####  Evaluation und Ausblick 
+####  Evaluation und Ausblick 
   6753 mit Geschäftszweck sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
   * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
 
-  * Cluster sind nicht immer logisch nachvollziebar. Bei gefundenen Cluster ist es teilweise nicht logisch nachvollziehbar, wie der zusammenhang zwischen den Clustern ist.
+  * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. 
   
-  Passender Zusammenhang feststellbar: Clustering nach Keywords -> WordClouddarstellung. 
-
-  Kein Erkennbarer Zusammenhang feststellbar:   
- 
-
-
+  Passender Zusammenhang feststellbar: Clustering nach Keywords -> WordCloud-Darstellung. 
 
 
 
