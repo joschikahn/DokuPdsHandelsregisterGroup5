@@ -25,7 +25,8 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Dat
 * html Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mit Hilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html Dateien fokussiert. Da diese, die geschwünschten Inhalte, zum Anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. binhalten. 
 * Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Datein nicht immer ermittelt werden konnten.
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
-![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Gewinn.png  "Optionaler Titel")![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Bilansu.png "Optionaler Titel")
+![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Gewinn.png  "Optionaler Titel")
+![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Bilansu.png "Optionaler Titel")
 
 
 
