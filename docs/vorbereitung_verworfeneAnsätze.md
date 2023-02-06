@@ -26,6 +26,8 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Dat
 * Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Datein nicht immer ermittelt werden konnten.
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
 ![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Gewinn.png  "Optionaler Titel")
+![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Bilansu.png "Optionaler Titel")
+
 
 * Diese sollten auch in die Gradioapp integriert werden, aber wegen Umsetzungschwierigkeiten, sind diese nur im Notebook abgebildet.
 * Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert
