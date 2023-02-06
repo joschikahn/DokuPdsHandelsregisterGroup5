@@ -27,7 +27,7 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Dat
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
 ![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Gewinn.png  "Gewinn/Verlust")
 
-![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Bilansu.png "Bilanzumme")
+![Alt-Text](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Bilansum.png "Bilanzumme")
 
 
 
