@@ -21,12 +21,12 @@ In diesem Notebook, wurde die relevanten Daten für die Bilanzen des jeweiligen 
 #### Anwendungsfall
 In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Datein vorhanden. Für die Bilanz sind diese wichtig die unter dem Namen 'finanzberichte' abgespeichert sind. Ziel war es so viele Informationen wie möglich aus diesen Dateien zu ermitteln. Hierbei ist anzumerken, dass diese html Datein unterschiedlich strukturiert sind. Im normal Fall sind die Daten der Bilanz wie Anlagevermögen, Umlaufvermögen, Verbindlichkeiten etc. vorhanden.
 #### Umsetzung
-* Zuerst wurden die benötigten Datein ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefilter die'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
-* html Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mit Hilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html Dateien fokussiert. Da diese, die geschwünschten Inhalte, zum anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. binhalten. 
+* Zuerst wurden die benötigten Datein ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefilter die 'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
+* html Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mit Hilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html Dateien fokussiert. Da diese, die geschwünschten Inhalte, zum Anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. binhalten. 
 * Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Datein nicht immer ermittelt werden konnten.
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
-* Dieser sollte auch in die Gradioapp integriert werden aber es gab leider Umsetzungschwierigkeiten, weshlab dieser nur im Notebook abgebildet wird
-* Die gewonnen Daten wurden in der Datei Bilanzen.csv abgespeichert
+* Diese sollten auch in die Gradioapp integriert werden, aber wegen Umsetzungschwierigkeiten, sind diese nur im Notebook abgebildet.
+* Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert
 #### Evaluation und Ausblick
 * In den meisten Fällen hat das auslesen der Datein gut funktioniert
 * Aber dennoch ergaben sich einige Probleme
