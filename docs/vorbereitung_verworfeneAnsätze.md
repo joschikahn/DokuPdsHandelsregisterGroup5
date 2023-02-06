@@ -6,11 +6,12 @@
 In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und einem Dataframe df gespeichert. Dieses wurde exportiert um es in der App für die Funktion "Dateisuche in TIF-Dateien" zu nutzen.
 
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
-In diesem Notebook wird die Umsetzung der Branchenklassifikation inkl. der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt. 
+In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
+[Offizielle Branchenbezeichnung nach WZ-2008 Standard](https://i.imgur.com/8sifpGM.png)  
 
 #### Anwendungsfall 
-Branchen klassifizieren nach WZ-2008 üblichen Branchen, ...
-![Branchenlandschaft nach WZ-2008](./Data/wz-2008_klassifizierung.gif)   
+Branchen klassifizieren nach WZ-2008 üblichen Branchen.
+![Branchenlandschaft nach WZ-2008](Data/wz-2008_klassifizierung.gif)   
 
 
 #### Umsetzung 
@@ -22,18 +23,18 @@ Ausblick: Labelling möglich für deutliche Performanceverbesserung.
 ### Notebook: Bilanzen
 In diesem Notebook, wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
 #### Anwendungsfall
-In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Dateien vorhanden. Für die Bilanz sind diese wichtig die unter dem Namen 'finanzberichte' abgespeichert sind. Ziel war es so viele Informationen wie möglich aus diesen Dateien zu ermitteln. Hierbei ist anzumerken, dass diese html Datein unterschiedlich strukturiert sind. Im normal Fall sind die Daten der Bilanz wie Anlagevermögen, Umlaufvermögen, Verbindlichkeiten etc. vorhanden.
+In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Dateien vorhanden. Für die Bilanz sind diese wichtig die unter dem Namen 'finanzberichte' abgespeichert sind. Ziel war es so viele Informationen wie möglich aus diesen Dateien zu ermitteln. Hierbei ist anzumerken, dass diese html Dateien unterschiedlich strukturiert sind. Im normal Fall sind die Daten der Bilanz wie Anlagevermögen, Umlaufvermögen, Verbindlichkeiten etc. vorhanden.
 #### Umsetzung
-* Zuerst wurden die benötigten Dateidn ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefiltert, die 'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
+* Zuerst wurden die benötigten Dateien ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefiltert, die 'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
 * html Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mit Hilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html Dateien fokussiert, da diese die gewünschten Inhalte zum Anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. beinhalten. 
 * Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Dateien nicht immer ermittelt werden konnten.
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
 
-![Gewinn nach Bilanz](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Gewinn2.png  "Gewinn/Verlust")
-![Bilansumme](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Bilansum.png "Bilanzumme")
+[Gewinn nach Bilanz](https://i.imgur.com/ITHgjJ8.png)
+[Bilanzsumme](https://i.imgur.com/Ak3DO98.png)
 
 
-* Diese sollten auch in die Gradi-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
+* Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
 * Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert
   
 #### Evaluation und Ausblick
@@ -91,7 +92,8 @@ Auch hier gab es wieder Codierungsfehler und html-Files die nicht 'geparst' werd
   * Preprocessing:  Firmenbeschreibung auf Nomen reduziert mit Spacy-Tokenizer und wenig aussagekräftige Nomen & spezielle Rechtsbegriffe entfernt wie  *Unternehmen*, *Gesellschaft*, *Zweigniederlassung*
   *  Großes Spacy-Sprachmodel *de_core_news_lg* gleicht die Firmenbeschreibung mit den Branchenbezeichnungen aus dem WZ-2008 Register ab und ermittelt die semantische Ähnlichkeit anhand des similarity Wertes. Je nach Granularität werden die entsprechenden Branchenbezeichnungen als Vergleichsstring herangezogen Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche. 
   *  Die Organisation wird anhand der Beschreibung der best-passendste Branche zugeordnet (diejenige mit dem höchsten Similariy-Wert). Die top 5 Branchen werden zu der Organisation zugeordnet werden und damit alle Firmen klassifiziert werden. 
-  *  Die Funktionalität lässt sich am besten verdeutlichen, indem man *neue* Firma anhand einer Tätigkeitsbeschreibung in die WZ-2008 Norm einordnen möchte: ![Branche Klassifizieren nach NLP](https://media.giphy.com/media/5uDbVaE7cLIIqlVYkd/giphy.gif)
+  *  Die Funktionalität lässt sich am besten verdeutlichen, indem man *neue* Firma anhand einer Tätigkeitsbeschreibung in die WZ-2008 Norm einordnen möchte: [Semantische Ähnlichkeit](https://i.imgur.com/wnOrTcn.gifv)
+* 
 
   * Darüber hinaus. Semantische Ähnlichkeit-Suche unabhängig von der Brancheneinteilung. 
 
@@ -121,9 +123,12 @@ Auch hier gab es wieder Codierungsfehler und html-Files die nicht 'geparst' werd
    * Sehr feint: 200 Cluster 
 
   Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
-  ![hier gezeigt](https://media.giphy.com/media/h9SgiKNGf6DldceSKr/giphy.gif). 
+  [Ähnliche Unternehmen finden anhand Clustering](https://i.imgur.com/SFzaFhJ.gifv)
 
   Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
+
+  [KMeans mit 5 Clustern - mit PCA visualisiert)](https://i.imgur.com/eBxjv1a.png)
+  [KMeans mit 20 Clustern - mit PCA visualisiert](https://i.imgur.com/gnO5W6g.png)
 
 ####  Evaluation und Ausblick 
   6753 Unternehmen (Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
