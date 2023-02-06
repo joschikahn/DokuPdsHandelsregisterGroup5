@@ -18,6 +18,59 @@ Zero-Shot-Classification usw.
 
 #### Evaluation und Ausblick 
 Ausblick: Labelling möglich für deutliche Performanceverbesserung ...
+### Notebook: Bilanzen
+In diesem Notebook, wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
+#### Anwendungsfall
+In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Datein vorhanden. Für die Bilanz sind diese wichtig die unter dem Namen 'finanzberichte' abgespeichert sind. Ziel war es so viele Informationen wie möglich aus diesen Dateien zu ermitteln. Hierbei ist anzumerken, dass diese html Datein unterschiedlich strukturiert sind. Im normal Fall sind die Daten der Bilanz wie Anlagevermögen, Umlaufvermögen, Verbindlichkeiten etc. vorhanden.
+#### Umsetzung
+* Zuerst wurden die benötigten Datein ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefilter die 'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
+* html Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mit Hilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html Dateien fokussiert. Da diese, die geschwünschten Inhalte, zum Anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. binhalten. 
+* Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Datein nicht immer ermittelt werden konnten.
+* Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
+
+![Gewinn nach Bilanz](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Gewinn2.png  "Gewinn/Verlust")
+![Bilansumme](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/main/docs/Data/Bilansum.png "Bilanzumme")
+
+
+
+* Diese sollten auch in die Gradioapp integriert werden, aber wegen Umsetzungschwierigkeiten, sind diese nur im Notebook abgebildet.
+* Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert
+#### Evaluation und Ausblick
+* In den meisten Fällen hat das Auslesen der Datein gut funktioniert
+* Aber dennoch ergaben sich einige Probleme
+* Die Strukturen der html-Tabllen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
+* Auch die Formatierung der Tabllen ist nicht immer gleich
+* Desweiteren, waren auch keine html-Datein für das jeweilige Unternehmen vorhanden
+Diese Faktoren haben dazugeführt, dass einige Bilansdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukuft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+### Notebook: XML_to_DatFrame
+In diesem Notebook wird das Parsing von xml-Dateien behandelt. Xml-Datein sind strukturiert und können somit mit lxml.etree ermittelt werden. Es wurden verschiedene Informationen zu den Files ermittelt. Zum einen, welche Personen im Unternehmen tätig sind, ihre dazugehörigen Rollen und die Geschäftszwecke des Unternehmens. Andere Daten wie Anschrift des Unternehmens wurde mit Hilfe der json-Datei ermittelt. Für das Notebook waren die Daten aus der json-Datei nötig, um eine csv Datei zu generieren.
+
+#### Anwendungsfall
+Um an gewissse Rohdaten zu den Unternehmen und den Personen zu kommen, wird das xml-Parsing durchgeführt. Aufbauend auf diesen Daten können Modelle und Plots generiert werden. Da zu fast jedem Unternehmen ein xml vorhanden ist, eignet sich dies gut um an Informationen zu gelangen.
+
+#### Umsetzung
+* Zuerst werden die benötigten xml-Files aus den Ordner herausgefiltert. Um diese später einzeln durchzugehen.
+* Im nächstem Schritt werden die Definitionen programmiert, die Daten zur Person, zur Rolle und zum Geschäftszweck generieren.
+* Durch diese Definitionen werden die einzelnen Files analysiert
+* Die Daten werden gegebnenfalls zusammengeführt und abgespeichert
+#### Evaluation und Ausblick
+* Schwierigkeiten beim xml-Parsing waren Codierungsfehler, da bei manchen files die Codierung gefehlt oder falsch war. Dies hat dazu geführt, dass einige xml-Files nicht analysiert werden konnten.
+* Diese Codierungsfehler konnten nicht behoben werden, deshalb wurden diese fehlerhaften Files herausgefiltert.
+* Dennoch ist wieder zu betonen das für die meisten Fälle das xml-Parsing funktioniert und genügend Daten wurden extrahiert.
+### Notebook: Registerbekanntmachungen_html
+Neben den html-Files, die Daten bezüglich der Bilanz beinhalten, gibt es wiederum html-Files, die Informationen bezüglich der Registerbekanntmachungen. Diese Bekanntmachungen behinhalten, beispielsweise einen Wechsel in der Geschäftsführung, die Änderung des Unternehmenszwecks, die Änderung des Sitzes des Unternehmens
+#### Anwendungsfall
+Hier wird wieder html-Parsing betrieben. Diese Informationen können verwendet werden, um mit Hilfe eines Zeitstrahl aufzuzeigen wann welche Veränderungen im Unternehmen aufgetreten sind. 
+#### Umsetzung
+* Zuerst werden wieder die benötigten Files in den Ordnern herausgefiltert und zwischengespeichert.
+* Dannach werden die einzelnen Informationen der Bekanntmachungen ermittelt:
+ * Die Art der Bekanntmachung
+ * Das Datum
+ * und der Text der Bekanntmachung
+* Diese Daten werden formatiert und in ein DatFrame eingespeichert
+* Die Umsetzung des Zeitstrahl erfolgt in der Gradioapp
+#### Evaluation und Ausblick
+Auch hier gab es wieder Codierungsfehler und html-Files die nicht 'geparst' werden konnten, musste entfernt werden. Zukünftliche wäre es besser diese Codierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
 
 ## Verworfene Ansätze
 
