@@ -16,6 +16,24 @@ Zero-Shot-Classification usw.
 
 #### Evaluation und Ausblick 
 Ausblick: Labelling möglich für deutliche Performanceverbesserung ...
+### Notebook: Bilanzen
+In diesem Notebook, wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
+#### Anwendungsfall
+In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Datein vorhanden. Für die Bilanz sind diese wichtig die unter dem Namen 'finanzberichte' abgespeichert sind. Ziel war es so viele Informationen wie möglich aus diesen Dateien zu ermitteln. Hierbei ist anzumerken, dass diese html Datein unterschiedlich strukturiert sind. Im normal Fall sind die Daten der Bilanz wie Anlagevermögen, Umlaufvermögen, Verbindlichkeiten etc. vorhanden.
+#### Umsetzung
+* Zuerst wurden die benötigten Datein ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefilter die'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
+* html Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mit Hilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html Dateien fokussiert. Da diese, die geschwünschten Inhalte, zum anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. binhalten. 
+* Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Datein nicht immer ermittelt werden konnten.
+* Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
+* Dieser sollte auch in die Gradioapp integriert werden aber es gab leider Umsetzungschwierigkeiten, weshlab dieser nur im Notebook abgebildet wird
+* Die gewonnen Daten wurden in der Datei Bilanzen.csv abgespeichert
+####Evaluation und Ausblick
+* In den meisten Fällen hat das auslesen der Datein gut funktioniert
+* Aber dennoch ergaben sich einige Probleme
+* Die Strukturen der html-Tabllen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
+* Auch die Formatierung der Tabllen ist nicht immer gleich
+* Desweiteren, waren auch keine html-Datein für das jeweilige Unternehmen vorhanden
+Diese faktoren haben dazugeführt das einige Bilansdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, das dies in den meisten Fällen sehr gut funktioniert. In der Zukuft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
 
 ## Verworfene Ansätze
 
