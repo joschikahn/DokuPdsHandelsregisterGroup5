@@ -28,12 +28,16 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Dat
 * Diese sollten auch in die Gradioapp integriert werden, aber wegen Umsetzungschwierigkeiten, sind diese nur im Notebook abgebildet.
 * Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert
 #### Evaluation und Ausblick
-* In den meisten Fällen hat das auslesen der Datein gut funktioniert
+* In den meisten Fällen hat das Auslesen der Datein gut funktioniert
 * Aber dennoch ergaben sich einige Probleme
 * Die Strukturen der html-Tabllen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
 * Auch die Formatierung der Tabllen ist nicht immer gleich
 * Desweiteren, waren auch keine html-Datein für das jeweilige Unternehmen vorhanden
-Diese faktoren haben dazugeführt das einige Bilansdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, das dies in den meisten Fällen sehr gut funktioniert. In der Zukuft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+Diese Faktoren haben dazugeführt, dass einige Bilansdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen sehr gut funktioniert. In der Zukuft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+### Notebook: XML_to_DatFrame
+#### Anwendungsfall
+#### Umsetzung
+#### Evaluation
 
 ## Verworfene Ansätze
 
