@@ -56,9 +56,19 @@ Um an gewissse Rohdaten zu den Unternehmen und den Personen zu kommen, wird das 
 * Diese Codierungsfehler konnten nicht behoben werden, deshalb wurden diese fehlerhaften Files herausgefiltert.
 * Dennoch ist wieder zu betonen das für die meisten Fälle das xml-Parsing funktioniert und genügend Daten wurden extrahiert.
 ### Notebook: Registerbekanntmachungen_html
+Neben den html-Files, die Daten bezüglich der Bilanz beinhalten, gibt es wiederum html-Files, die Informationen bezüglich der Registerbekanntmachungen. Diese Bekanntmachungen behinhalten, beispielsweise einen Wechsel in der Geschäftsführung, die Änderung des Unternehmenszwecks, die Änderung des Sitzes des Unternehmens
 #### Anwendungsfall
+Hier wird wieder html-Parsing betrieben. Diese Informationen können verwendet werden, um mit Hilfe eines Zeitstrahl aufzuzeigen wann welche Veränderungen im Unternehmen aufgetreten sind. 
 #### Umsetzung
+* Zuerst werden wieder die benötigten Files in den Ordnern herausgefiltert und zwischengespeichert.
+* Dannach werden die einzelnen Informationen der Bekanntmachungen ermittelt:
+ * Die Art der Bekanntmachung
+ * Das Datum
+ * und der Text der Bekanntmachung
+* Diese Daten werden formatiert und in ein DatFrame eingespeichert
+* Die Umsetzung des Zeitstrahl erfolgt in der Gradioapp
 #### Evaluation und Ausblick
+Auch hier gab es wieder Codierungsfehler und html-Files die nicht 'geparst' werden konnten, musste entfernt werden. Zukünftliche wäre es besser diese Codierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
 
 ## Verworfene Ansätze
 
