@@ -39,11 +39,22 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Dat
 * Die Strukturen der html-Tabllen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
 * Auch die Formatierung der Tabllen ist nicht immer gleich
 * Desweiteren, waren auch keine html-Datein für das jeweilige Unternehmen vorhanden
-Diese Faktoren haben dazugeführt, dass einige Bilansdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen sehr gut funktioniert. In der Zukuft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+Diese Faktoren haben dazugeführt, dass einige Bilansdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukuft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
 ### Notebook: XML_to_DatFrame
+In diesem Notebook wird das Parsing von xml-Dateien behandelt. Xml-datein sind strukturiert und können somit mir lxml.etree ermittelt werden. Es wurden verschiedene Daten zu den Daten ermittelt. Zum einen welche Personen im Unternhmen tätig sind, ihre dazugehörigen Rollen und die Geschäftszwekce des Unternehmens. Andere Daten wie Anschrift des Unternehmens wurde mit Hilfe der json-Datei ermittelt.Für das Notebook waren die daten aus der json-Datei nötig, um eine csv Datei zu generieren.
+
 #### Anwendungsfall
+Um an gewissse Rohdaten zu den Unternehmen und den Personen zu kommen, wird das xml-Parsing durchgeführt. Aufbauend auf diesen Daten können Modelle und Plots generiert werden. Da zu fast jedem Unternehmen ein xml vorhanden ist, eignet sich dies gut um an Informationen zu gelangen.
+
 #### Umsetzung
+* Zuerst werden die benötigten xml-Files aus den Ordner herausgefiltert. Um diese später einzeln durchzugehen.
+* Der nächste Schritt ist Definitionen zu definieren die Daten zur Person, zur Rolle und zum Geschäftszweck zu generieren.
+* Durch diese Definitionen werden die einzelnen Files analysiert
+* Die Daten werden gegebnenfalls zusammengeführt und abgespeichert
 #### Evaluation
+* Schwierigkeiten beim xml-Parsing waren Codierungsfehler, da bei manchen files die Codierung gefehlt oder falsch war. Dies hat dazu geführt, dass einige xml-Files nicht analysiert werden konnten.
+* Diese Codierungsfehler konnten nicht behoben werden, deshalb wurden diese fehlerhaften Files herausgefiltert. Somit konnten diese nicht analysiert werden.
+* Dennoch ist wieder zu betonen das für die meisten Fälle das xml-Parsing funktioniert und genügend Daten wurden extrahiert. 
 
 ## Verworfene Ansätze
 
