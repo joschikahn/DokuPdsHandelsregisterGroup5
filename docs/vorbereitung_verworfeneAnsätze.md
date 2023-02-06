@@ -10,6 +10,8 @@ In diesem Notebook wird die Umsetzung der Branchenklassifikation inkl. der versc
 
 #### Anwendungsfall 
 Branchen klassifizieren nach WZ-2008 üblichen Branchen, ...
+![Branchenlandschaft nach WZ-2008](./Data/wz-2008_klassifizierung.gif)   
+
 
 #### Umsetzung 
 Zero-Shot-Classification usw.
@@ -32,7 +34,7 @@ Ausblick: Labelling möglich für deutliche Performanceverbesserung ...
   
 #### Umsetzung:
  
-  * Preprocessing:  Firmenbeschreibung Nomen reduziert mit Spacy-Tokenizer und wenig aussagekräftige Nomen und spezielle Rechtsbegriffe entfernt wie  *Unternehmen*, *Gesellschaft*, *Zweigniederlassung*
+  * Preprocessing:  Firmenbeschreibung auf Nomen reduziert mit Spacy-Tokenizer und wenig aussagekräftige Nomen & spezielle Rechtsbegriffe entfernt wie  *Unternehmen*, *Gesellschaft*, *Zweigniederlassung*
   *  Großes Spacy-Sprachmodel *de_core_news_lg* gleicht die Firmenbeschreibung mit den Branchenbezeichnungen aus dem WZ-2008 Register ab und ermittelt die semantische Ähnlichkeit anhand des similarity Wertes. Je nach Granularität werden die entsprechenden Branchenbezeichnungen als Vergleichsstring herangezogen Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche. 
   *  Die Organisation wird anhand der Beschreibung der best-passendste Branche zugeordnet (diejenige mit dem höchsten Similariy-Wert). Die top 5 Branchen werden zu der Organisation zugeordnet werden und damit alle Firmen klassifiziert werden. 
   *  Die Funktionalität lässt sich am besten verdeutlichen, indem man *neue* Firma anhand einer Tätigkeitsbeschreibung in die WZ-2008 Norm einordnen möchte: ![Branche Klassifizieren nach NLP](https://media.giphy.com/media/5uDbVaE7cLIIqlVYkd/giphy.gif)
@@ -70,13 +72,12 @@ Ausblick: Labelling möglich für deutliche Performanceverbesserung ...
   Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
 
 ####  Evaluation und Ausblick 
-  6753 mit Geschäftszweck sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
+  6753 Unternehmen (Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
   * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
 
   * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar.  Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen.  
 
 Ergänzende Information dazu im Notebook als Kommentar / Markdown.
-
 
 ## Dateien
 
