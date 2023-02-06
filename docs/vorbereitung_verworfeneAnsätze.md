@@ -27,7 +27,7 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unteranderem hmtl-Dat
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
 * Dieser sollte auch in die Gradioapp integriert werden aber es gab leider Umsetzungschwierigkeiten, weshlab dieser nur im Notebook abgebildet wird
 * Die gewonnen Daten wurden in der Datei Bilanzen.csv abgespeichert
-####Evaluation und Ausblick
+#### Evaluation und Ausblick
 * In den meisten Fällen hat das auslesen der Datein gut funktioniert
 * Aber dennoch ergaben sich einige Probleme
 * Die Strukturen der html-Tabllen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
