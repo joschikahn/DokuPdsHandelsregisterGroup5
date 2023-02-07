@@ -138,7 +138,7 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
    * Sehr feint: 200 Cluster 
 
   Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
-  [Ähnliche Unternehmen finden anhand Clustering](https://i.imgur.com/SFzaFhJ.gifv)
+  [Ähnliche Unternehmen finden anhand Clustering](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/unsupervised_kmeans_clustering.gif)
 
   Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
 
