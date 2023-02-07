@@ -9,7 +9,7 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
 ![Offizielle Branchenbezeichnung nach WZ-2008 Standard](https://imgur.com/ICsRlLt)  
 
-#### Anwendungsfall 
+#### Anwendungsfall
 Branchen klassifizieren nach WZ-2008 üblichen Branchen.
 ![Branchenlandschaft nach WZ-2008](Data/wz-2008_klassifizierung.gif)   
 
@@ -32,6 +32,7 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 
 [Gewinn nach Bilanz](https://i.imgur.com/ITHgjJ8.png)
 [Bilanzsumme](https://i.imgur.com/Ak3DO98.png)
+
 
 
 * Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
