@@ -8,7 +8,7 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
 In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
 ![Offizielle Branchenbezeichnung nach WZ-2008 Standard](https://imgur.com/ICsRlLt)  
-![Bilanzen](https://github.com/joschikahn/DokuPdsHandelsregisterGroup5/blob/5a6d6a189bf655577281b023e165acf378d5228d/docs/Data/Bilansum.png)
+![Bilanzen](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Bilansum.png)
 
 #### Anwendungsfall
 Branchen klassifizieren nach WZ-2008 üblichen Branchen.
