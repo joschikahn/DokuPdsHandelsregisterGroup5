@@ -8,7 +8,7 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
 In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
 ![Offizielle Branchenbezeichnung nach WZ-2008 Standard](https://imgur.com/ICsRlLt)  
-![Bilanzen2](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Bilansum.png)
+
 
 #### Anwendungsfall
 Branchen klassifizieren nach WZ-2008 üblichen Branchen.
@@ -30,9 +30,9 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 * Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Dateien nicht immer ermittelt werden konnten.
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
 
-[Gewinn nach Bilanz](https://i.imgur.com/ITHgjJ8.png)
-[Bilanzsumme](https://i.imgur.com/Ak3DO98.png)
-
+![Gewinn nach Bilanz](https://i.imgur.com/ITHgjJ8.png)
+![Bilanzsumme](https://i.imgur.com/Ak3DO98.png)
+![Bilanzensumme](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Bilansum.png)
 
 
 * Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
@@ -74,6 +74,21 @@ Hier wird wieder html-Parsing betrieben. Diese Informationen können verwendet w
 * Die Umsetzung des Zeitstrahl erfolgt in der Gradio-App
 #### Evaluation und Ausblick
 Auch hier gab es wieder Codierungsfehler und html-Files die nicht 'geparst' werden konnten, musste entfernt werden. Zukünftliche wäre es besser diese Codierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
+
+### Umkreissuche 
+In diesem Notebook wird Funktionalität der geographischen Unsetzung beschreiben. 
+#### Anwendungsfall 
+Firmen im Umkreis eines beliebigen Ortes suchen. 
+#### Umsetzung
+1. Berechnug der koordinaten im Vorfeld mit GeoPy anhand Adresse, Postleitzahl und Stadt.
+2. Sucheigabe wird ebenfalls in Koordinaten umgewandet und die Distanzen zu den berechneten Koordinaten gefunden. 
+3. Die Suchergebnisse werden als interaktive Karte dargestellt. Der Unternehmensname erscheint als Mouse-Over. 
+
+Optimierung der Rechenzeit: 
+Um die Rechenzeit zu optimieren wurde in die Umkreissuche ein vorgelagerter PLZ Abgleich eingerichtet. Dadurch reduziert sich die Anzahl der zu treffenden Vergleiche und die Rechenzeit bei Anfragen unter 100km Umkreis kann um circa 30 % verbessert werden. Ist der Suchradius unter 150 km, werden nur Firmen für den Vergleich betrachtet, die in potentiell erreichbaren PLZ-Gebieten liegen.
+
+#### Evaluation
+Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Diese wenige Firmen tauchen nicht in der 
 
 ## Verworfene Ansätze
 
