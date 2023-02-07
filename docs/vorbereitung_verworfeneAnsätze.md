@@ -7,18 +7,16 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
 In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
-
-
-
 #### Anwendungsfall
-Branchen klassifizieren nach WZ-2008 üblichen Branchen.
-![Branchenlandschaft nach WZ-2008](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/wz-2008_klassifizierung.png)
+Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. 
+![Branchenlandschaft nach WZ-2008](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/wz-2008_klassifizierung.png). Außerdem ist es sinnvoll neue Unternehmen anhand einer Beschreibung in diese Branchenlandschaft einzusortieren.
 
 #### Umsetzung 
-Zero-Shot-Classification usw.
-
+Zero-Shot-Classification verwendet basierend auf dem speziell auf die deutsche Sprache trainierten Modell *xml-roberta*. 
+Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei bestpassendeste Branchen werden gespeichert. 
 #### Evaluation und Ausblick 
 Ausblick: Labelling möglich für deutliche Performanceverbesserung. 
+
 
 ### Notebook: Bilanzen
 In diesem Notebook, wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
@@ -36,7 +34,6 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 
 * Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
 * Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert
-  
 #### Evaluation und Ausblick
 * In den meisten Fällen hat das Auslesen der Dateien gut funktioniert
 * Aber dennoch ergaben sich einige Probleme
@@ -130,29 +127,25 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
   Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
   1. Nach unverarbeiteter Geschäftszweck 
   2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
-
   Entsprechend der Art werden dafür TF-IDF-Vektoren gebildet (sklearn tfidf vectorizer). Anschließend wird darauf der k-Means-Algorithmus angewendet.
   Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
    * Grob : 5 Cluster
    * Mittel: 20 Cluster 
    * Fein: 100 Cluster
-   * Sehr feint: 200 Cluster 
+   * Sehr fein: 200 Cluster 
 
   Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
   [Ähnliche Unternehmen finden anhand Clustering](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/unsupervised_kmeans_clustering.gif)
 
-  Ähnliche Unternehmen werden anhand des Clustering vorgeschlagen.
-
-  [KMeans mit 5 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_5means_keywords_pca.png)
-  [KMeans mit 20 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_20means_keywords_pca.png)
+  Ähnliche Unternehmen werden dann anhand der eingeteilten Cluster vorgeschlagen.
+  ![KMeans mit 5 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_5means_keywords_pca.png)
+  ![KMeans mit 20 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_20means_keywords_pca.png)
 
 ####  Evaluation und Ausblick 
   6753 Unternehmen (Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
   * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
-
-  * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar.  Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen.  
-
-Ergänzende Information dazu im Notebook als Kommentar / Markdown.
+  * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen. 
+  Ergänzende Information dazu im Notebook als Kommentar / Markdown.
 
 ## Dateien
 
