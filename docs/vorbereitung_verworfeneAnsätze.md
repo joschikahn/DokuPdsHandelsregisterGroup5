@@ -31,7 +31,6 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
 
 ![Gewinn nach Bilanz](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Gewinn2.png)
-
 ![Bilanzensumme](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Bilansum.png)
 
 
@@ -45,12 +44,12 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 * Auch die Formatierung der Tabellen ist nicht immer gleich
 * Des Weiteren, waren auch keine html-Dateien für das jeweilige Unternehmen vorhanden
 Diese Faktoren haben dazugeführt, dass einige Bilanzdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukunft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+
+
 ### Notebook: XML_to_DatFrame
 In diesem Notebook wird das Parsing von xml-Dateien behandelt. Xml-Dateien sind strukturiert und können somit mit lxml.etree ermittelt werden. Es wurden verschiedene Informationen zu den Files ermittelt. Zum einen, welche Personen im Unternehmen tätig sind, ihre dazugehörigen Rollen und die Geschäftszwecke des Unternehmens. Andere Daten wie Anschrift des Unternehmens wurde mit Hilfe der json-Datei ermittelt. Für das Notebook waren die Daten aus der json-Datei nötig, um eine csv Datei zu generieren.
-
 #### Anwendungsfall
 Um an bestimmte Rohdaten zu den Unternehmen und den Personen zu kommen, wird das xml-Parsing durchgeführt. Aufbauend auf diesen Daten können Modelle und Plots generiert werden. Da zu fast jedem Unternehmen ein xml vorhanden ist, eignet sich dies gut um an Informationen zu gelangen.
-
 #### Umsetzung
 * Zuerst werden die benötigten xml-Files aus den Ordner herausgefiltert. Um diese später einzeln durchzugehen.
 * Im nächstem Schritt werden die Definitionen programmiert, die Daten zur Person, zur Rolle und zum Geschäftszweck generieren.
@@ -60,6 +59,8 @@ Um an bestimmte Rohdaten zu den Unternehmen und den Personen zu kommen, wird das
 * Schwierigkeiten beim xml-Parsing waren Codierungsfehler, da bei manchen files die Codierung gefehlt oder falsch war. Dies hat dazu geführt, dass einige xml-Files nicht analysiert werden konnten.
 * Diese Codierungsfehler konnten nicht behoben werden, deshalb wurden diese fehlerhaften Files herausgefiltert.
 * Dennoch ist wieder zu betonen das für die meisten Fälle das xml-Parsing funktioniert und genügend Daten wurden extrahiert.
+
+
 ### Notebook: Registerbekanntmachungen_html
 Neben den html-Files, die Daten bezüglich der Bilanz beinhalten, gibt es wiederum html-Files, die Informationen bezüglich der Registerbekanntmachungen. Diese Bekanntmachungen beinhalten, beispielsweise einen Wechsel in der Geschäftsführung, die Änderung des Unternehmenszwecks, die Änderung des Sitzes des Unternehmens
 #### Anwendungsfall
@@ -73,22 +74,21 @@ Hier wird wieder html-Parsing betrieben. Diese Informationen können verwendet w
 * Diese Daten werden formatiert und in ein DatFrame eingespeichert
 * Die Umsetzung des Zeitstrahl erfolgt in der Gradio-App
 #### Evaluation und Ausblick
-Auch hier gab es wieder Codierungsfehler und html-Files die nicht 'geparst' werden konnten, musste entfernt werden. Zukünftliche wäre es besser diese Codierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
+Auch hier gab es wieder Codierungsfehler und html-Files die nicht 'geparst' werden konnten, musste entfernt werden. Zukünftig wäre es besser diese Codierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
+
 
 ### Umkreissuche 
-In diesem Notebook wird Funktionalität der geographischen Unsetzung beschreiben. 
+In diesem Notebook wird Funktionalität der geographischen Umsetzung beschreiben. 
 #### Anwendungsfall 
-Firmen im Umkreis eines beliebigen Ortes suchen. 
+Firmen im Umkreis eines beliebigen Ortes suchen. Dabei soll es egal sein. 
 #### Umsetzung
-1. Berechnug der koordinaten im Vorfeld mit GeoPy anhand Adresse, Postleitzahl und Stadt.
-2. Sucheigabe wird ebenfalls in Koordinaten umgewandet und die Distanzen zu den berechneten Koordinaten gefunden. 
+1. Im Vorfeld: Berechnung und Speichern der Koordinaten im Vorfeld mit GeoPy anhand Adresse, Postleitzahl und Stadt.
+2. Sucheigabe wird mit GeoPY in Koordinaten umgewandte und die Distanzen zu den berechneten Koordinaten gefunden.
 3. Die Suchergebnisse werden als interaktive Karte dargestellt. Der Unternehmensname erscheint als Mouse-Over. 
-
-Optimierung der Rechenzeit: 
+Darüber hinaus: 
 Um die Rechenzeit zu optimieren wurde in die Umkreissuche ein vorgelagerter PLZ Abgleich eingerichtet. Dadurch reduziert sich die Anzahl der zu treffenden Vergleiche und die Rechenzeit bei Anfragen unter 100km Umkreis kann um circa 30 % verbessert werden. Ist der Suchradius unter 150 km, werden nur Firmen für den Vergleich betrachtet, die in potentiell erreichbaren PLZ-Gebieten liegen.
-
 #### Evaluation
-Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Diese wenige Firmen tauchen nicht in der 
+Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
 
 ## Verworfene Ansätze
 
@@ -105,7 +105,7 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
   
 #### Umsetzung:
  
-  * Preprocessing:  Firmenbeschreibung auf Nomen reduziert mit Spacy-Tokenizer und wenig aussagekräftige Nomen & spezielle Rechtsbegriffe entfernt wie  *Unternehmen*, *Gesellschaft*, *Zweigniederlassung*
+  * Preprocessing: Firmenbeschreibung auf Nomen reduziert mit Spacy-Tokenizer und wenig aussagekräftige Nomen & spezielle Rechtsbegriffe entfernt wie  *Unternehmen*, *Gesellschaft*, *Zweigniederlassung*
   *  Großes Spacy-Sprachmodel *de_core_news_lg* gleicht die Firmenbeschreibung mit den Branchenbezeichnungen aus dem WZ-2008 Register ab und ermittelt die semantische Ähnlichkeit anhand des similarity Wertes. Je nach Granularität werden die entsprechenden Branchenbezeichnungen als Vergleichsstring herangezogen Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche. 
   *  Die Organisation wird anhand der Beschreibung der best-passendste Branche zugeordnet (diejenige mit dem höchsten Similariy-Wert). Die top 5 Branchen werden zu der Organisation zugeordnet werden und damit alle Firmen klassifiziert werden. 
   *  Die Funktionalität lässt sich am besten verdeutlichen, indem man *neue* Firma anhand einer Tätigkeitsbeschreibung in die WZ-2008 Norm einordnen möchte: ![Semantische Ähnlichkeit](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/branchen_klassifizierung_wz2008_semantic_similarity.gif)
