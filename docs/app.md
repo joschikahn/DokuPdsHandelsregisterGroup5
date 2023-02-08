@@ -34,7 +34,14 @@ Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Robe
 
 ### Funktion: Q-A-Chatbot
 
-Dem Chatbot können beliebe Fragen zu Unternehmen, Personen oder sonstiges (z.B. Orte/Regionen) gefragt werden. Die Funktionalität basiert auf einer Kombination aus Named Entity Recognition und einer extractive Q-A-Model und wird genauer im Notebook *chatbot.ipynb* in Abschnitt [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze /erläutert.  
+Dem Chatbot können beliebe Fragen zu Unternehmen, Personen oder sonstiges (z.B. Orte/Regionen) gefragt werden. Die Funktionalität basiert auf einer Kombination aus Named Entity Recognition und einer extractive Q-A-Model und kann beliebige Frage beantworten. 
+### Anwendungsfall 
+Fragen können direkt gestellt werden, ohne Umweg über Suchfunktion bzw. Klicken und Scrollen bis zum Treffen.
+### Umsetzung 
+Der Chatbot ist zweistufig aufgebaut. 
+1. Named-Entity-Recognition auf die Suchfrage angewendet 
+2. Verarbeitung der extrahierten Entities. z.B. wenn Firma-Entity erkannt, dann über Fuzzywuzzy nach bestpassendestem Eintrag suchen. Wenn ein Ort oder eine Person erkannt wird, werden entsprechend andere Schritte und Ausgaben eingeleitet. 
+3. 
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
 
@@ -83,7 +90,7 @@ Diese sind:
 ### Funktion: Suche nach Umkreis 
 Es lassen sich Unternehmen aus dem Handelsregister nach Umkreis suchen und werden in einer interaktiven Karte ausgegeben.
 #### Anwendungsfall 
-Firmen im Umkreis eines beliebigen Ortes suchen. Dabei soll es egal sein. 
+Firmen im Umkreis eines beliebigen Ortes suchen.
 #### Umsetzung
 1. Im Vorfeld: Berechnung und Speichern der Koordinaten im Vorfeld mit GeoPy anhand Adresse, Postleitzahl und Stadt.
 2. Sucheingabe wird mit GeoPY in Koordinaten umgewandte und die Distanzen zu den berechneten Koordinaten gefunden.
@@ -91,8 +98,7 @@ Firmen im Umkreis eines beliebigen Ortes suchen. Dabei soll es egal sein.
 Darüber hinaus: 
 Um die Rechenzeit zu optimieren wurde in die Umkreissuche ein vorgelagerter PLZ Abgleich eingerichtet. Dadurch reduziert sich die Anzahl der zu treffenden Vergleiche und die Rechenzeit bei Anfragen unter 100km Umkreis kann um circa 30 % verbessert werden. Ist der Suchradius unter 150 km, werden nur Firmen für den Vergleich betrachtet, die in potentiell erreichbaren PLZ-Gebieten liegen.
 #### Evaluation
-Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
-
+Für circa 95 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
 
 ## Dateien
 
