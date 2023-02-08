@@ -41,7 +41,26 @@ Fragen können direkt gestellt werden, ohne Umweg über Suchfunktion bzw. Klicke
 Der Chatbot ist zweistufig aufgebaut. 
 1. Named-Entity-Recognition auf die Suchfrage angewendet 
 2. Verarbeitung der extrahierten Entities. z.B. wenn Firma-Entity erkannt, dann über Fuzzywuzzy nach bestpassendestem Eintrag suchen. Wenn ein Ort oder eine Person erkannt wird, werden entsprechend andere Schritte und Ausgaben eingeleitet. 
-3. Entsprechend der Vorverarbeitung wird ein passender Context-String generiert, aus dem sich die Frage über ein *extractive Q-A-Modell* beantworten lässt. Der Context-String setzt sich aus 
+3. Entsprechend der Vorverarbeitung wird ein passender Context-String generiert, aus dem sich die Frage über ein *extractive Q-A-Model* beantworten lässt. Der Context-String setzt sich aus den relevanten Informationen zu den Firmen bzw. zu den Personen zusammen (letzte spalte in *all_companies..._oneline.csv*.
+4. Je nach Frage werden Ausgaben generiert. Mögliche Ausgabeformen sind 
+    * Text-Antworten 
+    * eine Karte mit eingezeichneten Firmen 
+    * Diagramm zu Firmennetzwerke 
+### Evaluation und Ausblick 
+Beispiele für gut funktionierende Fragen: 
+    * Wer ist der Geschäftsführer von Firma XYZ? 
+    * Welche Unternehmen sitzen in Schweinfurt? 
+    * Wie hoch ist das Kapital von der *Meyer Gmbh*?
+    * In welcher Branche ist die Firma *Metallbau Sorgenfrei* tätig? 
+    * Was macht die *Beispiel Gmb*?
+
+    * In welchen Unternehmen ist *Dietmar Hopp* tätig? 
+    * Welche Rolle hat *Franz Müller*? 
+    * Wo wohnt *Barbara Schmitt*? 
+    * Welche Firmen führt *Hans Zimmmermann*?
+
+
+
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
 
