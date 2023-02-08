@@ -8,9 +8,9 @@ In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und eine
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
 In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
 #### Anwendungsfall
-Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. Mit insgesamt über 1200 verschiedneen Branchenbezeichnungen verliert man schnell den Überblick und eine Selection per Dropdown oder 
+Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. Mit insgesamt über 1200 verschiedene Branchenbezeichnungen verliert man schnell den Überblick und eine Selection per Dropdown oder 
 ![Branchenlandschaft nach WZ-2008](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/wz-2008_klassifizierung.png). 
-1. Einordnen der vorhandenen Firmen z.B für Filteroperationen oder Ähnlichkeitssuche. Welche ähnliche Firmen gibt es?
+1. Einordnen der vorhandenen Firmen z.B für Filteroperationen oder Ähnlichkeit-Suche. Welche ähnliche Firmen gibt es?
 2. Für neue hinzukommenden bzw. neugegründete Firmen bestimmen in welche Branche sie eingeordnet werden sollen. 
 
 
@@ -19,14 +19,13 @@ Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann 
   Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei best-passendeste Branchen werden gespeichert. Alle Firmen mit Beschreibung in die Branchen eingeordnet. Das lässt sich für Filteroperationen und für den Vorschlag von ähnlichen Unternehmen verwenden.
   2. Anwendung für neue Unternehmen: Anhand einer Freitext-Tätigkeitsbeschreibung werden Vorschläge für die Branche nach WZ-2008 und den offiziellen Branchencode bestimmt.
 #### Evaluation und Ausblick 
-Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation inkl. Bestimmung der Oberbranche durchgeführt. Bezüglich der Rechenzeit für das 'Durchklassifizieren der Firmen' bietet sich noch kleinere Modelle an, da es in unserem Fall eine Rechendauer von ci. 30 Stunden hatte.
+Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation inkl. Bestimmung der Oberbranche durchgeführt. Bezüglich der Rechenzeit für das 'Durchklassifizieren' der Firmen' bietet sich noch kleinere Modelle an, da es in unserem Fall eine Rechendauer von ci. 30 Stunden hatte.
 Wir haben keine gelabelten Daten verwendet, konnten dennoch gute Ergebnisse erzielen. Insbesondere besser als der Ansatz über einen Similarity-Abgleich. Vor allem bei *guten* Firmenbeschreibungen sind die gefundenen Branchen zutreffend. Bei Firmenbeschreibungen von schlechter Qualität sind die gefundenen Klassifikationen entsprechen auch schlechter. 
-Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenzeit stellt ein weitere Optimierungspotential dar, insbesondere auf den Granularitäts-Ebenen Sub-,Sub-Sub- und Sub-Sub-Sub-Branche. In einem späteren Einsatz ist dies allerdings nicht von zu entscheidender Bedeutung, da diese Klassifikaton.
+Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenzeit stellt ein weitere Optimierungspotential dar, insbesondere auf der Granularität Sub-,Sub-Sub- oder Sub-Sub-Sub-Branche. In einem späteren Einsatz ist dies allerdings nicht von zu einschränkender Bedeutung, da diese Klassifikation nur einmalig durchgeführt werden (bei Anlegen). 
 
 Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner. 
 ![Vergleich Accuracy](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
-![Verglecih Accurzuy (within Top 3)]
-
+![Vergleich Accuracy](within Top 3)]
 
 ### Notebook: Bilanzen
 In diesem Notebook, wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
@@ -35,7 +34,7 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 #### Umsetzung
 * Zuerst wurden die benötigten Dateien ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefiltert, die 'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
 * html Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mit Hilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html Dateien fokussiert, da diese die gewünschten Inhalte zum Anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. beinhalten. 
-* Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabllen der html-Dateien nicht immer ermittelt werden konnten.
+* Die zeitlichen Daten, wann die Bilanz erstellt wurde wurde nachträglich hinzufügt, da erkennbar war, das diese Daten in den Tabellen der html-Dateien nicht immer ermittelt werden konnten.
 * Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
 
 ![Gewinn nach Bilanz](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Gewinn2.png)
@@ -143,8 +142,10 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
    * Fein: 100 Cluster
    * Sehr fein: 200 Cluster 
 
-  Die Grobe Visualisierung lässt sich mithilfe einer PCA so visualisieren. Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
-  [Ähnliche Unternehmen finden anhand Clustering](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/unsupervised_kmeans_clustering.gif)
+  Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
+  [Ähnliche Unternehmen finden anhand Clustering](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/unsupervised_kmeans_clustering.gif). 
+
+  Das Clustering lässt sich mithilfe einer PCA visualisieren.
 
   Ähnliche Unternehmen werden dann anhand der eingeteilten Cluster vorgeschlagen.
   ![KMeans mit 5 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_5means_keywords_pca.png)

@@ -38,11 +38,10 @@ Eine Person wird gesucht und es werden seine Rollen und Beteiligungen an verschi
 
 ### OCR.csv
 Diese CSV-Datei repräsentiert folgendes Dataframe *bild ocr*
-
 In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. Die Datei stammt aus dem Notebook 
 
-### ....csv
-Inhalt der CSV... stammmt aus Notebook "Reading TIF-Files by OCR" in "VorbereitungVerworfenerCode/Vorbereitung"
+### all_companies_branchen_desc_key_coordinates_names_fulltext_oneline.csv
+Diese CSV-Datei enthält zu jeder Firma die angereicherten Informationen, die zu Darstellung im Dashboard und für den Chatbot benötigt wird. Für jede der 10.000 Firmen sind alle verfügbaren Informationen in insgesamt 27 Spalten angehängt (z.B Koordinaten, Branchen, Namen, Context-String für den Chatbot,...)
 
-### ....csv
-Inhalt der CSV... stammmt aus Notebook X
+### klassifikationen-wz-2008.csv
+Alle Branchenbezeichnungen auf den verschiedenen Ebenen nach WZ2008-Standard sind hier inklusive dem Branchencode enthalten. Dient als Basis zur den verschiedenen Branchenbestimmungen (nlp-similarity und zero-shot-classification Ansatz)
