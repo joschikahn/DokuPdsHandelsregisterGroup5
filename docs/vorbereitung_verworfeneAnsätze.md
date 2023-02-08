@@ -197,9 +197,8 @@ Diese Datei beinhaltet die Ergebnisse der Branchenklassifizierungen nach dem Spa
 
 ### vergleich_auswertung_branchen_classification.csv
 Diese Datei wurde für die Evaluation der beiden WZ-2008 Branchenklassifikationen verwendet. Diese Datei stammt aus dem einem Merge *branchen_labels_code_oberkat.csv* und *companies_desc_keywords_nlp_generated.csv*. Für beide Ansätze sind die drei besten Predictions als Spalte angehängt.
-Aus diesem Merge der (mit 6750 Unternehmen) wurden wurden für zufällige 54 Unternehmen ausgewertet (Spalte Accuracy und Within Top3-Accuracy).  
+Aus diesem Merge der (mit 6750 Unternehmen) wurden für zufällige 54 Unternehmen ausgewertet (Spalte Accuracy und Within Top3-Accuracy).  
 
-###
 
 
 

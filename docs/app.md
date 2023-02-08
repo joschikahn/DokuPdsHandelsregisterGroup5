@@ -76,13 +76,27 @@ Diese CSV-Datei repräsentiert folgendes Dataframe *bild ocr*
 In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. Die Datei stammt aus dem Notebook 
 
 ### all_companies_branchen_desc_key_coordinates_names_fulltext_oneline.csv
-Diese CSV-Datei enthält zu jeder Firma die angereicherten Informationen, die zu Darstellung im Dashboard und für den Chatbot benötigt wird. Für jede der 10.000 Firmen sind alle verfügbaren Informationen in insgesamt 27 Spalten angehängt (z.B Koordinaten, Branchen, Namen, Context-String für den Chatbot,...)
+Diese CSV-Datei enthält zu jeder Firma die angereicherten Informationen, die zu Darstellung im Dashboard und für den Chatbot benötigt wird. Für jede der 10.000 Firmen sind alle verfügbaren Informationen in insgesamt 27 Spalten angehängt z.B Koordinaten, Branchen, Namen und Rollen,...
+Die letzte Spalte beinhaltet alle Informationen als aufbereiteter String und wird für den Chatbot benötigt.
+Die Datei ist das Ergebnis aus verschiedenen Notebooks u.A.  *Chatbot.ipybn*, *xml_to_dataframe.ipynb*, *umkreissuche.ipynb*  oder *branche_bestimmen_zero_shot_classification.ipynb*. Diese Datei wird u.A für die Dashboard-Darstellung und Suchfunktionen und Klassifikationen verwendet.
+
 
 ### klassifikationen-wz-2008.csv
 Alle Branchenbezeichnungen auf den verschiedenen Ebenen nach WZ2008-Standard sind hier inklusive dem Branchencode enthalten. Dient als Basis zur den verschiedenen Branchenbestimmungen (nlp-similarity und zero-shot-classification Ansatz)
 ### merged_un_roles_personspd.csv
-Hier sind die Unternehmensdaten, die Daten zur Person, sowie die daten zu den Rollen in den Unternehmen gespeichert.
+Hier sind die Unternehmensdaten, die Daten zur Person, sowie die Daten zu den Rollen in den Unternehmen gespeichert.
 ### DataFrame_Changes.csv
-Hier sind die verschiedene Registerbekanntmachen gespeichert. Unteranderem die Art der Bekanntmachung, das Datum, sowie der Text der die genaue Information zur Bekanntmachung beinhaltet
+Hier sind die verschiedene Registerbekanntmachen gespeichert. Unter anderem die Art der Bekanntmachung, das Datum, sowie der Text der die genaue Information zur Bekanntmachung beinhaltet
 ### Bilanzen.csv
 Die relevanten Bilanzdaten wie Anlagevermögen, Umlaufvermögen, Bilanzsumme, Gewinn/Verlust, etc. sind hier abgespeichert
+
+### temp.png
+Zwischengespeichertes Netzwerkdiagramm-Plot
+
+### temp1.png
+Zwischengespeicherte Unternehmenshistorie-Plot
+
+## empty_output.png
+Für Chatbot-Darstellung benötigt, wenn kein Image-Output
+
+
