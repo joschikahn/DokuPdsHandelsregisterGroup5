@@ -12,6 +12,7 @@ Die im Notebook *Reading TIF-Files by OCR* in [Vorbereitung & verworfener Code](
 ### Funktion: Branchenklassifikation WZ-2008
 
 Anhand einer Freitexteingabe können die Firmen in die offiziell WZ-2008 Branchenlandschaft eingeordnet werden. Entsprechend der verschiedener Granularität (Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche) werden Vorschläge inklusive der WZ2008-Codes für eine Einordnung geliefert. Genauere Erklärung,  Vorgehensweise und Auswertung in [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze).
+Darüberhi
 
 
 ### Funktion: Q-A-Chatbot
@@ -35,6 +36,7 @@ Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, 
 * Eine bessere Möglichkeit wäre ein Dropdown-Menü, wo man seine gewünschte Person oder Unternehmen eingeben kann, ohne zuvor dies zuvor auswählen zu müssen.
 * Außerdem muss die ID mitgeben werden, da dies für Dashboard essenziell ist.
 * Dennoch ist zu betonen, dass die Funktionalität der Sucheingabe gegeben ist.
+  
 ### Funktion Dashboard 'Daten zur Person' siehe Definition Personendaten und Definition des Netzwerkgraphen
 Nachdem eine Suchanfrage zur Person getätigt wurde, erscheint im unterem Tab 'Daten zur Person', die Informationen zur Person. Als Backend dienen die Definition der Personendaten und die Definition des Netzwerkgrafen.
 #### Anwendungsfall
