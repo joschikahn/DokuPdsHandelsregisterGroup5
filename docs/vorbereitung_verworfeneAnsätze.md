@@ -13,11 +13,10 @@ Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann 
 1. Einordnen der vorhandenen Firmen z.B für Filteroperationen oder Ähnlichkeit-Suche. Welche ähnliche Firmen gibt es?
 2. Für neue hinzukommenden bzw. neugegründete Firmen bestimmen in welche Branche sie eingeordnet werden sollen. 
 
-
 #### Umsetzung 
   1.  Zero-Shot-Classification verwendet basierend auf dem speziell auf die deutsche Sprache trainierten Modell *xml-roberta*. 
   Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei best-passendeste Branchen werden gespeichert. Alle Firmen mit Beschreibung in die Branchen eingeordnet. Das lässt sich für Filteroperationen und für den Vorschlag von ähnlichen Unternehmen verwenden.
-  2. Anwendung für neue Unternehmen: Anhand einer Freitext-Tätigkeitsbeschreibung werden Vorschläge für die Branche nach WZ-2008 und den offiziellen Branchencode bestimmt.
+  1. Anwendung für neue Unternehmen: Anhand einer Freitext-Tätigkeitsbeschreibung werden Vorschläge für die Branche nach WZ-2008 und den offiziellen Branchencode bestimmt.
 #### Evaluation und Ausblick 
 Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation inkl. Bestimmung der Oberbranche durchgeführt. Bezüglich der Rechenzeit für das 'Durchklassifizieren' der Firmen' bietet sich noch kleinere Modelle an, da es in unserem Fall eine Rechendauer von ci. 30 Stunden hatte.
 Wir haben keine gelabelten Daten verwendet, konnten dennoch gute Ergebnisse erzielen. Insbesondere besser als der Ansatz über einen Similarity-Abgleich. Vor allem bei *guten* Firmenbeschreibungen sind die gefundenen Branchen zutreffend. Bei Firmenbeschreibungen von schlechter Qualität sind die gefundenen Klassifikationen entsprechen auch schlechter. 
@@ -25,7 +24,7 @@ Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenz
 
 Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner. 
 ![Vergleich Accuracy](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
-![Vergleich Accuracy](within Top 3)](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
+![Vergleich Accuracy within Top 3](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
 
 ### Notebook: Bilanzen
 In diesem Notebook wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
@@ -76,11 +75,10 @@ Hier wird wieder html-Parsing betrieben. Diese Informationen können verwendet w
  * Die Art der Bekanntmachung
  * Das Datum
  * und der Text der Bekanntmachung
-* Diese Daten werden formatiert und in ein Datframe eingespeichert
+* Diese Daten werden formatiert und in ein Dataframe eingespeichert
 * Die Umsetzung des Zeitstrahles erfolgt in der Gradio-App
 #### Evaluation und Ausblick
 Auch hier gab es wieder Kodierungsfehler und html-Files, die nicht „geparst“ werden konnten, diese mussten entfernt werden. Zukünftig wäre es besser, diese Kodierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
-
 
 ### Umkreissuche 
 In diesem Notebook wird Funktionalität der geographischen Umsetzung beschreiben. 
@@ -128,7 +126,6 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
 #### Anwendungsfall
   Inhaltliche ähnliche Unternehmen sollen in ein Cluster gemacht werden. *Welche ähnliche Unternehmen gibt es wie das Unternehmen "Müller Heizungsbau GmbH?".
   Diese können dann beispielsweise als Vorschläge empfohlen werden. Vor allem mit Umkreissuche sehr interessant: z.B. *In der Umgebung gibt es folgende Ähnliche Unternehmen*
-
 #### Umsetzung 
   Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
   1. Nach unverarbeiteter Geschäftszweck 
@@ -148,7 +145,6 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
   Ähnliche Unternehmen werden dann anhand der eingeteilten Cluster vorgeschlagen.
   ![KMeans mit 5 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_5means_keywords_pca.png)
   ![KMeans mit 20 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_20means_keywords_pca.png)
-
 ####  Evaluation und Ausblick 
   6753 Unternehmen (Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
   * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit).
