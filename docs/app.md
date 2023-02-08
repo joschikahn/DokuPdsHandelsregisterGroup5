@@ -18,7 +18,7 @@ Anhand einer Freitexteingabe können die Firmen in die offiziell WZ-2008 Branche
 
 Dem Chatbot können beliebe Fragen zu Unternehmen, Personen oder sonstiges (z.B. Orte/Regionen) gefragt werden. Die Funktionalität basiert auf einer Kombination aus Named Entity Recognition und einer extractive Q-A-Model und wird genauer im Notebook *chatbot.ipynb* in Abschnitt [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze /erläutert.  
 
-### Funktion: Suchfunktionen
+### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
 
 #### Anwedungsfall
 Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, dass der User nach einer Organisation oder nach einer Person suchen kann. Im Idealfall werden Personen oder Organisationen dem User angezeigt, die semantische Ähnlichkeiten zur eingegeben Sucheingabe besitzen. Somit hilft es dem User seine gewünschte Suchanfrage zu finden.
@@ -37,15 +37,21 @@ Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, 
 ### Funktion Dashboard 'Daten zur Person' siehe Definition Personendaten und Definition des Netzwerkgraphen
 Nachdem eine Suchanfrage zur Person getätigt wurde, erscheint im unterem Tab 'Daten zur Person', die Informationen zur Person. Als Backend dienen die Definition der Personendaten und die Definition des Netzwerkgraphen.
 #### Anwendungsfall
+Die Informationen zur einer Person werden durch zwei Darstellungen abgebildet.
+* Die Grundinformationen zur Person, wie Role  Name Geburtsdatum Ort und Unternehmen werden in einen Daframe im Frontend angezeigt.
+* Durch einen Netzwerkgraphen wird verbildlicht, in welchen Firmen die Person beteiligt ist.
+#### Umsetzung
+Nach der Sucheingaben werden den Funktionen der String der ausgeählten Dropdownzeile zurückgeben. In diesem String ist die ID der Person vorhanden. Diese ID wird extrahiert und weiterverarbeitet. Durch diese ID kann die Funktion die benötigten Daten aus den zuvor definierten Dataframes ziehen.
+#### Eevaluation und Ausblick
+* Der Plot des Netzwerkgraphen ist nicht interaktive, es ist nicht möglich auf die Firmen zu klicken, um an die Informationen zum Unternehmen zu kommen.
+* Außerdem ist der Plot sehr einfach gestaltet.
+* In Zukuft sollte dieser interaktiv und professioneller gestaltet werden.
+* Dennoch werden die relevanten Informationen dargestellt.
 
 
 ### Funktion: Suche nach Umkreis 
 
 Es lassen sich Unternehmen aus dem Handelsregister nach Umkreis suchen und werden in einer interaktiven Karte ausgegeben. Zugrundes liegende Preprocessing und Funktionsweise wird genauer in Notebook Vorbereitung und Verworfenen Ansätze erläutert. 
-
-### Funktion: Netzwerk Graph
-
-Eine Person wird gesucht und es werden seine Rollen und Beteiligungen an verschiedenen Firmen als Netzwerk-Graph angezeigt. Vorbereitung und Umsetzung genauer unter [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze) dokumentiert. 
 
 ### Funktion: Darstellung Firmendetails
 
