@@ -20,7 +20,7 @@ Dem Chatbot können beliebe Fragen zu Unternehmen, Personen oder sonstiges (z.B.
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
 
-#### Anwedungsfall
+#### Anwendungsfall
 Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, dass der User nach einer Organisation oder nach einer Person suchen kann. Im Idealfall werden Personen oder Organisationen dem User angezeigt, die semantische Ähnlichkeiten zur eingegebenen Sucheingabe besitzen. Somit hilft es dem User, seine gewünschte Suchanfrage zu finden.
 
 #### Umsetzung
@@ -53,7 +53,7 @@ Nach der Sucheingaben werden den Funktionen der String der ausgewählten Dropdow
 #### Anwendungsfall
 Um eine möglichst großen Überblick über die Informationen eines Unternehmens zu erlangen, werden diese unterschiedlich dargestellt. Zuerst werden die Grundinformationen zum Unternehmen angezeigt, wie Name, Anschrift etc. Danach wird die Branche des Unternehmens angezeigt. Des Weiteren werden die Daten der beteiligten Personen, die Bilanzdaten und der Geschäftszweck als jeweils als einzelne Dataframes angezeigt. Danach werden in einem Row die Daten zur Unternehmenshistorie sowie der Plot der Firmengeschichte dargestellt. Zum Schluss werden Firmen angezeigt, die in der gleichen Branche tätig sind.
 #### Umsetzung
-Wie zuvor wird hier durch die Dropdownauswahl ein String zurückgeben, der die Unternehmens-ID beinhaltet. Diese ID extrahieren die einzelnen Definitionen und können diese wiederum als Schlüssel verwenden, um an die Informationen zu kommen. Hierzu werden wieder einzelnen Dataframes als Datengrundlage gebraucht.
+Wie zuvor wird hier durch die Dropdown-Auswahl ein String zurückgeben, der die Unternehmens-ID beinhaltet. Diese ID extrahieren die einzelnen Definitionen und können diese wiederum als Schlüssel verwenden, um an die Informationen zu kommen. Hierzu werden wieder einzelnen Dataframes als Datengrundlage gebraucht.
 Diese sind: 
 * all_companies_branchen_desc_key_coordinates_names_fulltext_oneline.csv
 * merged_un_roles_personspd.csv
@@ -79,7 +79,6 @@ In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. 
 Diese CSV-Datei enthält zu jeder Firma die angereicherten Informationen, die zu Darstellung im Dashboard und für den Chatbot benötigt wird. Für jede der 10.000 Firmen sind alle verfügbaren Informationen in insgesamt 27 Spalten angehängt z.B Koordinaten, Branchen, Namen und Rollen,...
 Die letzte Spalte beinhaltet alle Informationen als aufbereiteter String und wird für den Chatbot benötigt.
 Die Datei ist das Ergebnis aus verschiedenen Notebooks u.A.  *Chatbot.ipybn*, *xml_to_dataframe.ipynb*, *umkreissuche.ipynb*  oder *branche_bestimmen_zero_shot_classification.ipynb*. Diese Datei wird u.A für die Dashboard-Darstellung und Suchfunktionen und Klassifikationen verwendet.
-
 
 ### klassifikationen-wz-2008.csv
 Alle Branchenbezeichnungen auf den verschiedenen Ebenen nach WZ2008-Standard sind hier inklusive dem Branchencode enthalten. Dient als Basis zur den verschiedenen Branchenbestimmungen (nlp-similarity und zero-shot-classification Ansatz)
