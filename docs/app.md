@@ -20,7 +20,13 @@ Dem Chatbot können beliebe Fragen zu Unternehmen, Personen oder sonstiges (z.B.
 
 ### Funktion: Suchfunktionen
 
-Mit dieser Funktion lassen sich Unternehmen lassen sich auch aufgrund ähnlicher Suchanfragen finden.
+#### Anwedungsfall
+Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, dass der User nach einer Organisation oder nach einer Person suchen kann. Im Idealfall werden Personen oder Organisationen dem User angezeigt, die semantische Ähnlichkeiten zur eingegeben Sucheingabe besitzen. Somit hilft es dem User seine gewünschte Suchanfrage zu finden.
+#### Umsetzung
+* Im Frontend wählt der User mit Hilfe einer Radioumgebung zuerst aus, ob er ein Unternehmen oder eine Person suchen möchte.
+* Danach muss er mit Hilfe einer Sliceumgebung auswählen, wie viele Vorschläge angezeigt werden sollen. 
+* Im nächstem Schritt, wird der Suchbegriff im Textfeld eingeben. Die Suchfunktion sucht nun die ähnliche Begriffe heraus und gibt diese automatisch im Dropdownmenü weiter. Je nachdem, ob eine Person oder ein Unternehmen gesucht werden soll, gibt die Funktion verschieden Informationen zurück, damit der User die gewünschte Person oder das gewünschte Unternehmen auswählen kann. Bei einer Suchanfrage zum Unternehmen wird der Suchscore, der Name des Unternehmen sowie der Ort zurückgeben. Außerdem wird die id der Organisation angezeigt, dies ist aber nur für die nachfolgenden Funktionen relevant.
+* Der User kann nun auf dem Butoon Suchen klicken und orderid wird weitergeben. Bei einer Personensuche, wird der Suchscore, der Name der Person, das Geburtsdatum der Ort und die id der Person zurückgeben. Die id ist wiederum nur für die nachfolgenden Funktionen relevant. Der Code für diese Funktion ist unter 'Definition der Suchfunktion' zu finden.
 
 ### Funktion: Suche nach Umkreis 
 
