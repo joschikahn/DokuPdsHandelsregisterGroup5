@@ -43,7 +43,7 @@ Die Informationen zu einer Person werden durch zwei Darstellungen abgebildet.
 * Durch einen Netzwerkgrafen wird verbildlicht, in welchen Firmen die Person beteiligt ist.
 #### Umsetzung
 Nach der Sucheingaben werden den Funktionen der String der ausgewählten Dropdownzeile zurückgeben. In diesem String ist die ID der Person vorhanden. Diese ID wird extrahiert und weiterverarbeitet. Durch diese ID kann die Funktion die benötigten Daten aus den zuvor definierten Dataframes ziehen.
-#### Eevaluation und Ausblick
+#### Evaluation und Ausblick
 * Der Plot des Netzwerkgrafen ist nicht interaktive, es ist nicht möglich auf die Firmen zu klicken, um an die Informationen zum Unternehmen zu kommen.
 * Außerdem ist der Plot sehr einfach gestaltet.
 * In Zukunft sollte dieser interaktiv und professioneller gestaltet werden.
@@ -62,12 +62,8 @@ Diese sind:
 
 
 ### Funktion: Suche nach Umkreis 
+Es lassen sich Unternehmen aus dem Handelsregister nach Umkreis suchen und werden in einer interaktiven Karte ausgegeben. Zugrundes liegende Preprocessing und Funktionsweise wird genauer in Notebook *vorbereitung/umkreissuche.ipynb* erläutert. 
 
-Es lassen sich Unternehmen aus dem Handelsregister nach Umkreis suchen und werden in einer interaktiven Karte ausgegeben. Zugrundes liegende Preprocessing und Funktionsweise wird genauer in Notebook Vorbereitung und Verworfenen Ansätze erläutert. 
-
-### Funktion: Darstellung Firmendetails
-
-Übersicht mit allen relevanten Information zu einer ausgewählten Firma inklusive Ereignisse, klassifizierten Branchenbezeichnungen. 
 
 ## Dateien
 
