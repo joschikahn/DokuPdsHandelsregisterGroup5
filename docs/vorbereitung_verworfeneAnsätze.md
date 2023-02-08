@@ -6,25 +6,7 @@
 In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und einem Dataframe df gespeichert. Dieses wurde exportiert um es in der App für die Funktion "Dateisuche in TIF-Dateien" zu nutzen.
 
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
-In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
-#### Anwendungsfall
-Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. Mit insgesamt über 1200 verschiedene Branchenbezeichnungen verliert man schnell den Überblick und eine Selection per Dropdown oder 
-![Branchenlandschaft nach WZ-2008](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/wz-2008_klassifizierung.png). 
-1. Einordnen der vorhandenen Firmen z.B für Filteroperationen oder Ähnlichkeit-Suche. Welche ähnliche Firmen gibt es?
-2. Für neue hinzukommenden bzw. neugegründete Firmen bestimmen in welche Branche sie eingeordnet werden sollen. 
-
-#### Umsetzung 
-  1.  Zero-Shot-Classification verwendet basierend auf dem speziell auf die deutsche Sprache trainierten Modell *xml-roberta*. 
-  Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei best-passendeste Branchen werden gespeichert. Alle Firmen mit Beschreibung in die Branchen eingeordnet. Das lässt sich für Filteroperationen und für den Vorschlag von ähnlichen Unternehmen verwenden.
-  1. Anwendung für neue Unternehmen: Anhand einer Freitext-Tätigkeitsbeschreibung werden Vorschläge für die Branche nach WZ-2008 und den offiziellen Branchencode bestimmt.
-#### Evaluation und Ausblick 
-Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation inkl. Bestimmung der Oberbranche durchgeführt. Bezüglich der Rechenzeit für das 'Durchklassifizieren' der Firmen' bietet sich noch kleinere Modelle an, da es in unserem Fall eine Rechendauer von ci. 30 Stunden hatte.
-Wir haben keine gelabelten Daten verwendet, konnten dennoch gute Ergebnisse erzielen. Insbesondere besser als der Ansatz über einen Similarity-Abgleich. Vor allem bei *guten* Firmenbeschreibungen sind die gefundenen Branchen zutreffend. Bei Firmenbeschreibungen von schlechter Qualität sind die gefundenen Klassifikationen entsprechen auch schlechter. 
-Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenzeit stellt ein weitere Optimierungspotential dar, insbesondere auf der Granularität Sub-,Sub-Sub- oder Sub-Sub-Sub-Branche. In einem späteren Einsatz ist dies allerdings nicht von zu einschränkender Bedeutung, da diese Klassifikation nur einmalig durchgeführt werden (bei Anlegen). 
-
-Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner. 
-![Vergleich Accuracy](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
-![Vergleich Accuracy within Top 3](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
+In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt, wie in Abschnitt *App* genauer beschrieben. Die Klassifizierung aller Firmen findet hier statt und wird im Dataframe *branchen_bestimmung_base_keywords.csv* abgespeichert. Die Branchenebenen und Bezeichnugen werden in diesem Notebook aufbereitet sowie die Klassifikation vorbereitet. 
 
 ### Notebook: Bilanzen
 In diesem Notebook wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
@@ -39,10 +21,8 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 ![Gewinn nach Bilanz](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Gewinn2.png)
 ![Bilanzensumme](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Bilansum.png)
 
-
 * Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
 * Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert.
-
 #### Evaluation und Ausblick
 * In den meisten Fällen hat das Auslesen der Dateien gut funktioniert
 * Aber dennoch ergaben sich einige Probleme
@@ -81,17 +61,8 @@ Hier wird wieder html-Parsing betrieben. Diese Informationen können verwendet w
 Auch hier gab es wieder Kodierungsfehler und html-Files, die nicht „geparst“ werden konnten, diese mussten entfernt werden. Zukünftig wäre es besser, diese Kodierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
 
 ### Umkreissuche 
-In diesem Notebook wird Funktionalität der geographischen Umsetzung beschreiben. 
-#### Anwendungsfall 
-Firmen im Umkreis eines beliebigen Ortes suchen. Dabei soll es egal sein. 
-#### Umsetzung
-1. Im Vorfeld: Berechnung und Speichern der Koordinaten im Vorfeld mit GeoPy anhand Adresse, Postleitzahl und Stadt.
-2. Sucheingabe wird mit GeoPY in Koordinaten umgewandte und die Distanzen zu den berechneten Koordinaten gefunden.
-3. Die Suchergebnisse werden als interaktive Karte dargestellt. Der Unternehmensname erscheint als Mouse-Over. 
-Darüber hinaus: 
-Um die Rechenzeit zu optimieren wurde in die Umkreissuche ein vorgelagerter PLZ Abgleich eingerichtet. Dadurch reduziert sich die Anzahl der zu treffenden Vergleiche und die Rechenzeit bei Anfragen unter 100km Umkreis kann um circa 30 % verbessert werden. Ist der Suchradius unter 150 km, werden nur Firmen für den Vergleich betrachtet, die in potentiell erreichbaren PLZ-Gebieten liegen.
-#### Evaluation
-Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
+In diesem Notebook wird die Umkreissuche vorbereitet: u.A: werden die Koordinaten für alle Firmen mit GeoPy berechnet und abgespeichert. Anwendungsfall und Umsetzung wird im Abschnitt *App* genauer erläutert
+
 
 ## Verworfene Ansätze
 

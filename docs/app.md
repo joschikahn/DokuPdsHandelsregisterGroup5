@@ -12,7 +12,24 @@ Die im Notebook *Reading TIF-Files by OCR* in [Vorbereitung & verworfener Code](
 ### Funktion: Branchenklassifikation WZ-2008
 
 Anhand einer Freitexteingabe können die Firmen in die offiziell WZ-2008 Branchenlandschaft eingeordnet werden. Entsprechend der verschiedener Granularität (Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche) werden Vorschläge inklusive der WZ2008-Codes für eine Einordnung geliefert. Genauere Erklärung,  Vorgehensweise und Auswertung in [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze).
-Darüberhi
+Auf Basis der Branchenklassifikation wird außerdem ein Ähnlichkeitssuche durchgeführt. Im Tab *ähnliche Firmen finden* lässt sich gezielt nach Unternehmen aus der selben Branche im Umkreis suchen. 
+#### Anwendungsfall
+Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. Mit insgesamt über 1200 verschiedene Branchenbezeichnungen verliert man schnell den Überblick und eine Selection per Dropdown oder 
+![Branchenlandschaft nach WZ-2008](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/wz-2008_klassifizierung.png). 
+1. Einordnen der vorhandenen Firmen z.B für Filteroperationen oder Ähnlichkeit-Suche. Welche ähnliche Firmen gibt es?
+2. Für neue hinzukommenden bzw. neugegründete Firmen bestimmen in welche Branche sie eingeordnet werden sollen. 
+#### Umsetzung 
+  1.  Zero-Shot-Classification verwendet basierend auf dem speziell auf die deutsche Sprache trainierten Modell *xml-roberta*. 
+  Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei best-passendeste Branchen werden gespeichert. Alle Firmen mit Beschreibung in die Branchen eingeordnet. Das lässt sich für Filteroperationen und für den Vorschlag von ähnlichen Unternehmen verwenden.
+  1. Anwendung für neue Unternehmen: Anhand einer Freitext-Tätigkeitsbeschreibung werden Vorschläge für die Branche nach WZ-2008 und den offiziellen Branchencode bestimmt.
+#### Evaluation und Ausblick 
+Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation inkl. Bestimmung der Oberbranche durchgeführt. Bezüglich der Rechenzeit für das 'Durchklassifizieren' der Firmen' bietet sich noch kleinere Modelle an, da es in unserem Fall eine Rechendauer von ci. 30 Stunden hatte.
+Wir haben keine gelabelten Daten verwendet, konnten dennoch gute Ergebnisse erzielen. Insbesondere besser als der Ansatz über einen Similarity-Abgleich. Vor allem bei *guten* Firmenbeschreibungen sind die gefundenen Branchen zutreffend. Bei Firmenbeschreibungen von schlechter Qualität sind die gefundenen Klassifikationen entsprechen auch schlechter. 
+Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenzeit stellt ein weitere Optimierungspotential dar, insbesondere auf der Granularität Sub-,Sub-Sub- oder Sub-Sub-Sub-Branche. In einem späteren Einsatz ist dies allerdings nicht von zu einschränkender Bedeutung, da diese Klassifikation nur einmalig durchgeführt werden (bei Anlegen). 
+
+Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner. 
+![Vergleich Accuracy](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
+![Vergleich Accuracy within Top 3](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
 
 
 ### Funktion: Q-A-Chatbot
@@ -64,7 +81,17 @@ Diese sind:
 
 
 ### Funktion: Suche nach Umkreis 
-Es lassen sich Unternehmen aus dem Handelsregister nach Umkreis suchen und werden in einer interaktiven Karte ausgegeben. Zugrundes liegende Preprocessing und Funktionsweise wird genauer in Notebook *vorbereitung/umkreissuche.ipynb* erläutert. 
+Es lassen sich Unternehmen aus dem Handelsregister nach Umkreis suchen und werden in einer interaktiven Karte ausgegeben.
+#### Anwendungsfall 
+Firmen im Umkreis eines beliebigen Ortes suchen. Dabei soll es egal sein. 
+#### Umsetzung
+1. Im Vorfeld: Berechnung und Speichern der Koordinaten im Vorfeld mit GeoPy anhand Adresse, Postleitzahl und Stadt.
+2. Sucheingabe wird mit GeoPY in Koordinaten umgewandte und die Distanzen zu den berechneten Koordinaten gefunden.
+3. Die Suchergebnisse werden als interaktive Karte dargestellt. Der Unternehmensname erscheint als Mouse-Over. 
+Darüber hinaus: 
+Um die Rechenzeit zu optimieren wurde in die Umkreissuche ein vorgelagerter PLZ Abgleich eingerichtet. Dadurch reduziert sich die Anzahl der zu treffenden Vergleiche und die Rechenzeit bei Anfragen unter 100km Umkreis kann um circa 30 % verbessert werden. Ist der Suchradius unter 150 km, werden nur Firmen für den Vergleich betrachtet, die in potentiell erreichbaren PLZ-Gebieten liegen.
+#### Evaluation
+Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
 
 
 ## Dateien
