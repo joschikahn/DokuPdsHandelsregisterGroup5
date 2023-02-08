@@ -186,6 +186,22 @@ Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
 ### DataFrame_Changes.csv
 Inhalt der CSV stammmt aus Notebook Registerbekanntmachungen_html
 
+### branchen_bestimmung_base_keywords.csv
+Grundlage für Branchenklassifikation mit Zero-Shot, Branchenklassifikation mit Spalcy-Similarity und für das unsuperviesed Clustering. Beinhaltet den Geschäftszweck und auf Nomen reduzierte und *aussagekräftig* (nicht *Unternehmen*, *Gesellschaft*, usw.) Schlagwörter.
+
+### branchen_labels_code_oberkat.csv
+Beinhaltet die identifiziete Brachen-Bezeichnungen für alle Firmen mit Beschreibung inkl. der Oberkateogrie (Abschnitt) und den WZ2008 Branchencodes.
+
+### companies_desc_keywords_nlp_generated.csv
+Diese Datei beinhaltet die Ergebnisse der Branchenklassifizierungen nach dem Spacy-Similarity Ansatz. 
+
+### vergleich_auswertung_branchen_classification.csv
+Diese Datei wurde für die Evaluation der beiden WZ-2008 Branchenklassifikationen verwendet. Diese Datei stammt aus dem einem Merge *branchen_labels_code_oberkat.csv* und *companies_desc_keywords_nlp_generated.csv*. Für beide Ansätze sind die drei besten Predictions als Spalte angehängt.
+Aus diesem Merge der (mit 6750 Unternehmen) wurden wurden für zufällige 54 Unternehmen ausgewertet (Spalte Accuracy und Within Top3-Accuracy).  
+
+###
+
+
 
 
 
