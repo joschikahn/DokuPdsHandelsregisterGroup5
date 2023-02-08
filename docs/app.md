@@ -50,14 +50,25 @@ Der Chatbot ist zweistufig aufgebaut.
 Beispiele für gut funktionierende Fragen: 
     * Wer ist der Geschäftsführer von Firma XYZ? 
     * Welche Unternehmen sitzen in Schweinfurt? 
-    * Wie hoch ist das Kapital von der *Meyer Gmbh*?
+    * Wie hoch ist das Kapital von der *Meyer GmbH*?
     * In welcher Branche ist die Firma *Metallbau Sorgenfrei* tätig? 
-    * Was macht die *Beispiel Gmb*?
+    * Was macht die *Beispiel GmbH*?
+    * Wie ist der Status von *Metzgerei Dannemann? 
 
     * In welchen Unternehmen ist *Dietmar Hopp* tätig? 
     * Welche Rolle hat *Franz Müller*? 
     * Wo wohnt *Barbara Schmitt*? 
     * Welche Firmen führt *Hans Zimmmermann*?
+    * Wie viele Unternehmen gibt es in Bad Waldsee? 
+
+Schwer zu beantwortende Fragen: 
+    * Ja-/Nein Fragen (werden mit Text beantworten). 
+    * Wie viel Firmen haben die Branche "Herstellung von Metall"
+
+Ausblick: 
+    * Erweiterung der Funktionalitäten durch integration von mehr context
+    * Fine-Tuning: Vorgeben von Fragen den formatierten Context-String und den richtigen Antworten (und dessen Position im Context String)
+* 
 
 
 
