@@ -63,15 +63,12 @@ Beispiele für gut funktionierende Fragen:
 
 Schwer zu beantwortende Fragen: 
     * Ja-/Nein Fragen (werden mit Text beantworten). 
-    * Wie viel Firmen haben die Branche "Herstellung von Metall"
+    * Aggregationsfragen bzw. Durchschnittsfragen:
+    * Wie viel Firmen haben die Branche "Herstellung von Metall"? 
 
 Ausblick: 
     * Erweiterung der Funktionalitäten durch integration von mehr context
     * Fine-Tuning: Vorgeben von Fragen den formatierten Context-String und den richtigen Antworten (und dessen Position im Context String)
-* 
-
-
-
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
 
