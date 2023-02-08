@@ -41,7 +41,7 @@ Fragen können direkt gestellt werden, ohne Umweg über Suchfunktion bzw. Klicke
 Der Chatbot ist zweistufig aufgebaut. 
 1. Named-Entity-Recognition auf die Suchfrage angewendet 
 2. Verarbeitung der extrahierten Entities. z.B. wenn Firma-Entity erkannt, dann über Fuzzywuzzy nach bestpassendestem Eintrag suchen. Wenn ein Ort oder eine Person erkannt wird, werden entsprechend andere Schritte und Ausgaben eingeleitet. 
-3. 
+3. Entsprechend der Vorverarbeitung wird ein passender Context-String generiert, aus dem sich die Frage über ein *extractive Q-A-Modell* beantworten lässt. Der Context-String setzt sich aus 
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
 
