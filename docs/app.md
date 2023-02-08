@@ -148,12 +148,12 @@ Hier sind die verschiedene Registerbekanntmachen gespeichert. Unter anderem die 
 Die relevanten Bilanzdaten wie Anlagevermögen, Umlaufvermögen, Bilanzsumme, Gewinn/Verlust, etc. sind hier abgespeichert
 
 ### temp.png
-Zwischengespeichertes Netzwerkdiagramm-Plot
+Zwischengespeichertes Netzwerkdiagramm
 
 ### temp1.png
 Zwischengespeicherte Unternehmenshistorie-Plot
 
-## empty_output.png
+### empty_output.png
 Für Chatbot-Darstellung benötigt, wenn kein Image-Output
 
 
