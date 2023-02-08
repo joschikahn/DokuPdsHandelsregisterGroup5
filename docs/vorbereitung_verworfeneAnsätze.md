@@ -45,26 +45,7 @@ Diese Faktoren haben dazugeführt, dass einige Bilanzdaten nicht oder falsch erm
 
 
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
-In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt.
-#### Anwendungsfall
-Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. Mit insgesamt über 1200 verschiedene Branchenbezeichnungen verliert man schnell den Überblick und eine Selection per Dropdown oder 
-![Branchenlandschaft nach WZ-2008](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/wz-2008_klassifizierung.png). 
-1. Einordnen der vorhandenen Firmen z.B für Filteroperationen oder Ähnlichkeit-Suche. Welche ähnliche Firmen gibt es?
-2. Für neue hinzukommenden bzw. neugegründete Firmen bestimmen in welche Branche sie eingeordnet werden sollen. 
-
-
-#### Umsetzung 
-  1.  Zero-Shot-Classification verwendet basierend auf dem speziell auf die deutsche Sprache trainierten Modell *xml-roberta*. 
-  Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei best-passendeste Branchen werden gespeichert. Alle Firmen mit Beschreibung in die Branchen eingeordnet. Das lässt sich für Filteroperationen und für den Vorschlag von ähnlichen Unternehmen verwenden.
-  2. Anwendung für neue Unternehmen: Anhand einer Freitext-Tätigkeitsbeschreibung werden Vorschläge für die Branche nach WZ-2008 und den offiziellen Branchencode bestimmt.
-#### Evaluation und Ausblick 
-Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation inkl. Bestimmung der Oberbranche durchgeführt. Bezüglich der Rechenzeit für das 'Durchklassifizieren' der Firmen' bietet sich noch kleinere Modelle an, da es in unserem Fall eine Rechendauer von ci. 30 Stunden hatte.
-Wir haben keine gelabelten Daten verwendet, konnten dennoch gute Ergebnisse erzielen. Insbesondere besser als der Ansatz über einen Similarity-Abgleich. Vor allem bei *guten* Firmenbeschreibungen sind die gefundenen Branchen zutreffend. Bei Firmenbeschreibungen von schlechter Qualität sind die gefundenen Klassifikationen entsprechen auch schlechter. 
-Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenzeit stellt ein weitere Optimierungspotential dar, insbesondere auf der Granularität Sub-,Sub-Sub- oder Sub-Sub-Sub-Branche. In einem späteren Einsatz ist dies allerdings nicht von zu einschränkender Bedeutung, da diese Klassifikation nur einmalig durchgeführt werden (bei Anlegen). 
-
-Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner. 
-![Vergleich Accuracy](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
-![Vergleich Accuracy](within Top 3)](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
+In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt, wie in Abschnitt *App* genauer beschrieben. Die Klassifizierung aller Firmen findet hier statt und wird im Dataframe *branchen_bestimmung_base_keywords.csv* abgespeichert. Die Branchenebenen und Bezeichnugen werden in diesem Notebook aufbereitet sowie die Klassifikation vorbereitet. 
 
 ### Notebook: Bilanzen
 In diesem Notebook wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
@@ -79,10 +60,8 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 ![Gewinn nach Bilanz](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Gewinn2.png)
 ![Bilanzensumme](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Bilansum.png)
 
-
 * Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
 * Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert.
-
 #### Evaluation und Ausblick
 * In den meisten Fällen hat das Auslesen der Dateien gut funktioniert
 * Aber dennoch ergaben sich einige Probleme
@@ -115,28 +94,53 @@ Hier wird wieder html-Parsing betrieben. Diese Informationen können verwendet w
  * Die Art der Bekanntmachung
  * Das Datum
  * und der Text der Bekanntmachung
-* Diese Daten werden formatiert und in ein Datframe eingespeichert
+* Diese Daten werden formatiert und in ein Dataframe eingespeichert
 * Die Umsetzung des Zeitstrahles erfolgt in der Gradio-App
 #### Evaluation und Ausblick
 Auch hier gab es wieder Kodierungsfehler und html-Files, die nicht „geparst“ werden konnten, diese mussten entfernt werden. Zukünftig wäre es besser, diese Kodierungsfehler zu umgehen, um mehr Daten für den Datensatz zu generieren. Dennoch ist abschließend zu sagen, dass das Parsing ein Erfolg war.
 
+### Notebook: Umkreissuche 
+  In diesem Notebook wird die Umkreissuche vorbereitet: u.A: werden die Koordinaten für alle Firmen mit GeoPy berechnet und abgespeichert. Anwendungsfall und Umsetzung wird im Abschnitt *App* genauer erläutert
 
-### Umkreissuche 
-In diesem Notebook wird Funktionalität der geographischen Umsetzung beschreiben. 
-#### Anwendungsfall 
-Firmen im Umkreis eines beliebigen Ortes suchen. Dabei soll es egal sein. 
-#### Umsetzung
-1. Im Vorfeld: Berechnung und Speichern der Koordinaten im Vorfeld mit GeoPy anhand Adresse, Postleitzahl und Stadt.
-2. Sucheingabe wird mit GeoPY in Koordinaten umgewandte und die Distanzen zu den berechneten Koordinaten gefunden.
-3. Die Suchergebnisse werden als interaktive Karte dargestellt. Der Unternehmensname erscheint als Mouse-Over. 
-Darüber hinaus: 
-Um die Rechenzeit zu optimieren wurde in die Umkreissuche ein vorgelagerter PLZ Abgleich eingerichtet. Dadurch reduziert sich die Anzahl der zu treffenden Vergleiche und die Rechenzeit bei Anfragen unter 100km Umkreis kann um circa 30 % verbessert werden. Ist der Suchradius unter 150 km, werden nur Firmen für den Vergleich betrachtet, die in potentiell erreichbaren PLZ-Gebieten liegen.
-#### Evaluation
-Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
+### Notebook: k_means_clustering_nach_tfidf
+  luster eingeteilt. 
+#### Anwendungsfall
+  Inhaltliche ähnliche Unternehmen sollen in ein Cluster gemacht werden. *Welche ähnliche Unternehmen gibt es wie das Unternehmen "Müller Heizungsbau GmbH?".
+  Diese können dann beispielsweise als Vorschläge empfohlen werden. Vor allem mit Umkreissuche sehr interessant: z.B. *In der Umgebung gibt es folgende Ähnliche Unternehmen*
+#### Umsetzung 
+  Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
+  1. Nach unverarbeiteter Geschäftszweck 
+  2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
+  Entsprechend der Art werden dafür TF-IDF-Vektoren gebildet (*sklearn tfidf vectorizer*). Anschließend wird darauf der k-Means-Algorithmus angewendet.
+  Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
+   * Grob: 5 Cluster
+   * Mittel: 20 Cluster 
+   * Fein: 100 Cluster
+   * Sehr fein: 200 Cluster 
+
+  Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
+  [Ähnliche Unternehmen finden anhand Clustering](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/unsupervised_kmeans_clustering.gif). 
+
+  Das Clustering lässt sich mithilfe einer PCA visualisieren.
+
+  Ähnliche Unternehmen werden dann anhand der eingeteilten Cluster vorgeschlagen.
+  ![KMeans mit 5 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_5means_keywords_pca.png)
+  ![KMeans mit 20 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_20means_keywords_pca.png)
+####  Evaluation und Ausblick 
+  6753 Unternehmen (= alle Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
+  * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit).
+ 
+  * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen. 
+  ![Erkennbarer Cluster-Zusammenhang: z.B. Handel Mode/Textilien]("https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_17_keywords.png")
+  ![Erkennbarer Cluster-Zusammenhang: z.B. Handwerk ](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_4_keywords.png)
+  ![Mittel erkennbarer Cluster-Zusammenhang: z.B. Wohnungs-und Grundstückswesen](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_18_keywords.png)
+  ![Schlecht erkennbarer Cluster-Zusammenhang](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_3_keywords.png)
+  Ergänzende Information dazu im Notebook als Kommentar / Markdown.
+
 
 ## Verworfene Ansätze
 
-### Notebook: VERWORFEN Reading TIF- and PDF-Files by OCR
+### Notebook: reading_tif_and_pdf_files_by_orc
  In diesem Notebook wurde versucht alle TIF- & PDF-Dateien mit Hilfe von OCR ausgelesen. Der Ansatz wurde verworfen weil es Probleme bei Installation & Nutzung der benötigten packages auf dem lokalen Windows System gab. Bei, Ausführen in Google Colab, sollte der Code funktionieren und somit nicht nur TIF-, sondern auch PDF-Dateien ausgelesen werden können.
 
 ### Notebook: branchen_bestimmung_nlp_semantic_similarity
@@ -160,46 +164,6 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
   Der Ansatz ist voll funktionsfähig und als Feature nutzbar. Die semantische Klassifizierung mit dem Spacy-Similarity-Abgleich ist dennoch nicht in APP-Anwendung integriert, da der Ansatz des Zero-Shot-Classification meistens nachvollziehbarer Ergebnisse liefert. 
     * Die semantische Ähnlichkeit-Suche unabhängig der gefunden Cluster, ist aufgrund sehr langer Rechenzeiten (circa 3 Minuten pro Anfrage) nur unter erheblichen Rechenzeitoptimierungen für eine größere Skalierung im Handelsregister denkbar. 
 
-### Notebook: k_means_clustering_nach_tfidf
-
-  Dieses Notebook beschreibt ein Clustering Ansatz der Unternehmen mit einem unsupervised Learning Ansatz. Anhand des Geschäftszweckes werden die Firmen in verschiedener Granularität in Cluster eingeteilt. 
-
-#### Anwendungsfall
-  Inhaltliche ähnliche Unternehmen sollen in ein Cluster gemacht werden. *Welche ähnliche Unternehmen gibt es wie das Unternehmen "Müller Heizungsbau GmbH?".
-  Diese können dann beispielsweise als Vorschläge empfohlen werden. Vor allem mit Umkreissuche sehr interessant: z.B. *In der Umgebung gibt es folgende Ähnliche Unternehmen*
-
-#### Umsetzung 
-  Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
-  1. Nach unverarbeiteter Geschäftszweck 
-  2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
-  Entsprechend der Art werden dafür TF-IDF-Vektoren gebildet (*sklearn tfidf vectorizer*). Anschließend wird darauf der k-Means-Algorithmus angewendet.
-  Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
-   * Grob: 5 Cluster
-   * Mittel: 20 Cluster 
-   * Fein: 100 Cluster
-   * Sehr fein: 200 Cluster 
-
-  Die Ergebnisse (= Cluster-Nummern) werden in am Dataframe als jeweils (pro Clustering Art und Granularität) als neue Spalte in den Dataframe eingehängt. Anschließend können diese Clustering Ergebnisse genutzt werden. Zum Beispiel für eine Vorschlagfunktion für ähnliche Unternehmen: 
-  [Ähnliche Unternehmen finden anhand Clustering](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/unsupervised_kmeans_clustering.gif). 
-
-  Das Clustering lässt sich mithilfe einer PCA visualisieren.
-
-  Ähnliche Unternehmen werden dann anhand der eingeteilten Cluster vorgeschlagen.
-  ![KMeans mit 5 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_5means_keywords_pca.png)
-  ![KMeans mit 20 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_20means_keywords_pca.png)
-
-####  Evaluation und Ausblick 
-  6753 Unternehmen (Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
-  * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit).
- 
-  * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen. 
-  ![Erkennbarer Cluster-Zusammenhang: z.B. Handel Mode/Textilien]("https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_17_keywords.png")
-  ![Erkennbarer Cluster-Zusammenhang: z.B. Handwerk ](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_4_keywords.png)
-  ![Mittel erkennbarer Cluster-Zusammenhang: z.B. Wohnungs-und Grundstückswesen](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_18_keywords.png)
-  ![Schlecht erkennbarer Cluster-Zusammenhang](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_3_keywords.png)
-
-   
-  Ergänzende Information dazu im Notebook als Kommentar / Markdown.
 
 ## Dateien
 
@@ -224,6 +188,21 @@ Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
 
 ### DataFrame_Changes.csv
 Inhalt der CSV stammmt aus Notebook Registerbekanntmachungen_html
+
+### branchen_bestimmung_base_keywords.csv
+Grundlage für Branchenklassifikation mit Zero-Shot, Branchenklassifikation mit Spalcy-Similarity und für das unsuperviesed Clustering. Beinhaltet den Geschäftszweck und auf Nomen reduzierte und *aussagekräftig* (nicht *Unternehmen*, *Gesellschaft*, usw.) Schlagwörter.
+
+### branchen_labels_code_oberkat.csv
+Beinhaltet die identifiziete Brachen-Bezeichnungen für alle Firmen mit Beschreibung inkl. der Oberkateogrie (Abschnitt) und den WZ2008 Branchencodes.
+
+### companies_desc_keywords_nlp_generated.csv
+Diese Datei beinhaltet die Ergebnisse der Branchenklassifizierungen nach dem Spacy-Similarity Ansatz. 
+
+### vergleich_auswertung_branchen_classification.csv
+Diese Datei wurde für die Evaluation der beiden WZ-2008 Branchenklassifikationen verwendet. Diese Datei stammt aus dem einem Merge *branchen_labels_code_oberkat.csv* und *companies_desc_keywords_nlp_generated.csv*. Für beide Ansätze sind die drei besten Predictions als Spalte angehängt.
+Aus diesem Merge der (mit 6750 Unternehmen) wurden für zufällige 54 Unternehmen ausgewertet (Spalte Accuracy und Within Top3-Accuracy).  
+
+
 
 
 
