@@ -21,41 +21,39 @@ Dem Chatbot können beliebe Fragen zu Unternehmen, Personen oder sonstiges (z.B.
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
 
 #### Anwedungsfall
-Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, dass der User nach einer Organisation oder nach einer Person suchen kann. Im Idealfall werden Personen oder Organisationen dem User angezeigt, die semantische Ähnlichkeiten zur eingegeben Sucheingabe besitzen. Somit hilft es dem User seine gewünschte Suchanfrage zu finden.
+Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, dass der User nach einer Organisation oder nach einer Person suchen kann. Im Idealfall werden Personen oder Organisationen dem User angezeigt, die semantische Ähnlichkeiten zur eingegebenen Sucheingabe besitzen. Somit hilft es dem User, seine gewünschte Suchanfrage zu finden.
+
 #### Umsetzung
-* Im Frontend wählt der User mit Hilfe einer Radioumgebung zuerst aus, ob er ein Unternehmen oder eine Person suchen möchte.
-* Danach muss er mit Hilfe einer Sliceumgebung auswählen, wie viele Vorschläge angezeigt werden sollen. 
-* Im nächstem Schritt, wird der Suchbegriff im Textfeld eingeben. Die Suchfunktion sucht nun die ähnliche Begriffe heraus und gibt diese automatisch im Dropdownmenü weiter. Je nachdem, ob eine Person oder ein Unternehmen gesucht werden soll, gibt die Funktion verschieden Informationen zurück, damit der User die gewünschte Person oder das gewünschte Unternehmen auswählen kann. Bei einer Suchanfrage zum Unternehmen wird der Suchscore, der Name des Unternehmen sowie der Ort zurückgeben. Außerdem wird die id der Organisation angezeigt, dies ist aber nur für die nachfolgenden Funktionen relevant.
-* Der User kann nun auf den Buton 'Suchen' klicken und orderid wird weitergeben. Bei einer Personensuche, wird der Suchscore, der Name der Person, das Geburtsdatum der Ort und die id der Person zurückgeben. Die id ist wiederum nur für die nachfolgenden Funktionen relevant. Der Code für diese Funktion ist unter 'Definition der Suchfunktion' zu finden.
+* Im Frontend wählt der User mithilfe einer Radioumgebung zuerst aus, ob er ein Unternehmen oder eine Person suchen möchte.
+* Danach muss er mithilfe einer Sliceumgebung auswählen, wie viele Vorschläge angezeigt werden sollen. 
+* Im nächsten Schritt wird der Suchbegriff im Textfeld eingeben. Die Suchfunktion sucht nun die ähnlichen Begriffe heraus und gibt diese automatisch im Dropdown-Menü weiter. Je nachdem, ob eine Person oder ein Unternehmen gesucht werden soll, gibt die Funktion verschieden Informationen zurück, damit der User die gewünschte Person oder das gewünschte Unternehmen auswählen kann. Bei einer Suchanfrage zum Unternehmen wird der Suchscore, der Name des Unternehmens sowie der Ort zurückgeben. Außerdem wird die ID der Organisation angezeigt, dies ist aber nur für die nachfolgenden Funktionen relevant.
+* Der User kann auf den Button „Suchen“ klicken und orderid wird weitergeben. Bei einer Personensuche wird der Suchscore, der Name der Person, das Geburtsdatum, der Ort und die ID der Person zurückgeben. Die ID ist wiederum nur für die nachfolgenden Funktionen relevant. Der Code für diese Funktion ist unter 'Definition der Suchfunktion' zu finden.
 #### Evaluation und Ausblick
 * Die Suche nach Unternehmen oder nach Personen ist gut umgesetzt, bei Testeingaben wurden die gewünschten Unternehmen oder Personen angezeigt.
 * Dennoch ist das UX Design im Frontend nicht einwandfrei.
-* Es sind zu viele Schritte nötig um die gewünschten Begriff zu finden.
-* Eine bessere Möglichkeit wäre Ein Dropdownmenü, wo man seinen gewünschte Person oder Unternehmen eingeben kann, ohne zuvor dies zuvor auswählen zu müssen.
-* Außerdem muss die id mitgeben werden, da dies für Dashboard exenziell ist.
-* Dennoch ist zu betonen, dass die funktionalität der Sucheingabe gegeben ist.
+* Es sind zu viele Schritte nötig, um die gewünschten Begriffe zu finden.
+* Eine bessere Möglichkeit wäre ein Dropdown-Menü, wo man seine gewünschte Person oder Unternehmen eingeben kann, ohne zuvor dies zuvor auswählen zu müssen.
+* Außerdem muss die ID mitgeben werden, da dies für Dashboard essenziell ist.
+* Dennoch ist zu betonen, dass die Funktionalität der Sucheingabe gegeben ist.
 ### Funktion Dashboard 'Daten zur Person' siehe Definition Personendaten und Definition des Netzwerkgraphen
-Nachdem eine Suchanfrage zur Person getätigt wurde, erscheint im unterem Tab 'Daten zur Person', die Informationen zur Person. Als Backend dienen die Definition der Personendaten und die Definition des Netzwerkgraphen.
+Nachdem eine Suchanfrage zur Person getätigt wurde, erscheint im unterem Tab 'Daten zur Person', die Informationen zur Person. Als Backend dienen die Definition der Personendaten und die Definition des Netzwerkgrafen.
 #### Anwendungsfall
-Die Informationen zur einer Person werden durch zwei Darstellungen abgebildet.
-* Die Grundinformationen zur Person, wie Role  Name Geburtsdatum Ort und Unternehmen werden in einen Daframe im Frontend angezeigt.
-* Durch einen Netzwerkgraphen wird verbildlicht, in welchen Firmen die Person beteiligt ist.
+Die Informationen zu einer Person werden durch zwei Darstellungen abgebildet.
+* Die Grundinformationen zur Person, wie Rolle, Name, Geburtsdatum, Ort und Unternehmen werden in einem Dataframe im Frontend angezeigt.
+* Durch einen Netzwerkgrafen wird verbildlicht, in welchen Firmen die Person beteiligt ist.
 #### Umsetzung
-Nach der Sucheingaben werden den Funktionen der String der ausgeählten Dropdownzeile zurückgeben. In diesem String ist die ID der Person vorhanden. Diese ID wird extrahiert und weiterverarbeitet. Durch diese ID kann die Funktion die benötigten Daten aus den zuvor definierten Dataframes ziehen.
+Nach der Sucheingaben werden den Funktionen der String der ausgewählten Dropdownzeile zurückgeben. In diesem String ist die ID der Person vorhanden. Diese ID wird extrahiert und weiterverarbeitet. Durch diese ID kann die Funktion die benötigten Daten aus den zuvor definierten Dataframes ziehen.
 #### Eevaluation und Ausblick
-* Der Plot des Netzwerkgraphen ist nicht interaktive, es ist nicht möglich auf die Firmen zu klicken, um an die Informationen zum Unternehmen zu kommen.
+* Der Plot des Netzwerkgrafen ist nicht interaktive, es ist nicht möglich auf die Firmen zu klicken, um an die Informationen zum Unternehmen zu kommen.
 * Außerdem ist der Plot sehr einfach gestaltet.
-* In Zukuft sollte dieser interaktiv und professioneller gestaltet werden.
+* In Zukunft sollte dieser interaktiv und professioneller gestaltet werden.
 * Dennoch werden die relevanten Informationen dargestellt.
 ### Funktion: Darstellung Daten zum Unternehmen --> siehe Darstellung des Dashboards und Definition der Unternehmenshistorie
-Übersicht mit allen relevanten Information zu einer ausgewählten Firma inklusive Ereignisse, klassifizierten Branchenbezeichnungen. Backend: Darstellung des Dashboards und Definition der Unternehmenshistorie
+Übersicht mit allen relevanten Information zu einer ausgewählten Firma inklusive Ereignisse, klassifizierten Branchenbezeichnungen. Backend: Darstellung des Dashboards und Definition der Unternehmenshistorie.
 #### Anwendungsfall
-Um eine Möglichst großen Überblick über die informationen eines Unternehmens zu erlangen, werden diese unterschiedlich dargestellt.
-Zu erst werden die Grundinformationen zum Unternehmen angezeigt, wie Name, Anschrift etc.
-Dannach wird die Branche des Unternehmens angezeigt. Desweitern werden die Daten der beteiligten Personen, die Bilanzdaten und der Geschäftszweck als jeweils als einzelne DataFrames angezeigt. Dannach werden in einem Row die Daten zur Unternehmenshistorie sowie der Plot der Firmengeschichte dargestellt.
-Zum Schluss werden Firmen angezeigt, die in der gleichen Branche tätig sind
+Um eine möglichst großen Überblick über die Informationen eines Unternehmens zu erlangen, werden diese unterschiedlich dargestellt. Zuerst werden die Grundinformationen zum Unternehmen angezeigt, wie Name, Anschrift etc. Danach wird die Branche des Unternehmens angezeigt. Des Weiteren werden die Daten der beteiligten Personen, die Bilanzdaten und der Geschäftszweck als jeweils als einzelne Dataframes angezeigt. Danach werden in einem Row die Daten zur Unternehmenshistorie sowie der Plot der Firmengeschichte dargestellt. Zum Schluss werden Firmen angezeigt, die in der gleichen Branche tätig sind.
 #### Umsetzung
-Wie zuvor wird hier durch die Dropdownauswahl ein String zurückgeben, der die Unternehmensid beinhaltet. Diese Id extrahieren die einzelnen Definitionen und können diese wiederum als Schlüssel verwenden um an die Infromationen zu kommen. Hierzu werden wieder einzelnen DataFrames als Datengrundlage. gebraucht.
+Wie zuvor wird hier durch die Dropdownauswahl ein String zurückgeben, der die Unternehmens-ID beinhaltet. Diese ID extrahieren die einzelnen Definitionen und können diese wiederum als Schlüssel verwenden, um an die Informationen zu kommen. Hierzu werden wieder einzelnen Dataframes als Datengrundlage gebraucht.
 Diese sind: 
 * all_companies_branchen_desc_key_coordinates_names_fulltext_oneline.csv
 * merged_un_roles_personspd.csv
