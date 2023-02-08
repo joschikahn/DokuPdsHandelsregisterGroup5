@@ -47,6 +47,20 @@ Nach der Sucheingaben werden den Funktionen der String der ausgeählten Dropdown
 * Außerdem ist der Plot sehr einfach gestaltet.
 * In Zukuft sollte dieser interaktiv und professioneller gestaltet werden.
 * Dennoch werden die relevanten Informationen dargestellt.
+### Funktion: Darstellung Daten zum Unternehmen --> siehe Darstellung des Dashboards und Definition der Unternehmenshistorie
+Übersicht mit allen relevanten Information zu einer ausgewählten Firma inklusive Ereignisse, klassifizierten Branchenbezeichnungen. Backend: Darstellung des Dashboards und Definition der Unternehmenshistorie
+#### Anwendungsfall
+Um eine Möglichst großen Überblick über die informationen eines Unternehmens zu erlangen, werden diese unterschiedlich dargestellt.
+Zu erst werden die Grundinformationen zum Unternehmen angezeigt, wie Name, Anschrift etc.
+Dannach wird die Branche des Unternehmens angezeigt. Desweitern werden die Daten der beteiligten Personen, die Bilanzdaten und der Geschäftszweck als jeweils als einzelne DataFrames angezeigt. Dannach werden in einem Row die Daten zur Unternehmenshistorie sowie der Plot der Firmengeschichte dargestellt.
+Zum Schluss werden Firmen angezeigt, die in der gleichen Branche tätig sind
+#### Umsetzung
+Wie zuvor wird hier durch die Dropdownauswahl ein String zurückgeben, der die Unternehmensid beinhaltet. Diese Id extrahieren die einzelnen Definitionen und können diese wiederum als Schlüssel verwenden um an die Infromationen zu kommen. Hierzu werden wieder einzelnen DataFrames als Datengrundlage. gebraucht.
+Diese sind: 
+* all_companies_branchen_desc_key_coordinates_names_fulltext_oneline.csv
+* merged_un_roles_personspd.csv
+* DataFrame_Changes.csv
+* Bilanzen.csv
 
 
 ### Funktion: Suche nach Umkreis 
@@ -68,3 +82,9 @@ Diese CSV-Datei enthält zu jeder Firma die angereicherten Informationen, die zu
 
 ### klassifikationen-wz-2008.csv
 Alle Branchenbezeichnungen auf den verschiedenen Ebenen nach WZ2008-Standard sind hier inklusive dem Branchencode enthalten. Dient als Basis zur den verschiedenen Branchenbestimmungen (nlp-similarity und zero-shot-classification Ansatz)
+### merged_un_roles_personspd.csv
+Hier sind die Unternehmensdaten, die Daten zur Person, sowie die daten zu den Rollen in den Unternehmen gespeichert.
+### DataFrame_Changes.csv
+Hier sind die verschiedene Registerbekanntmachen gespeichert. Unteranderem die Art der Bekanntmachung, das Datum, sowie der Text der die genaue Information zur Bekanntmachung beinhaltet
+### Bilanzen.csv
+Die relevanten Bilanzdaten wie Anlagevermögen, Umlaufvermögen, Bilanzsumme, Gewinn/Verlust, etc. sind hier abgespeichert
