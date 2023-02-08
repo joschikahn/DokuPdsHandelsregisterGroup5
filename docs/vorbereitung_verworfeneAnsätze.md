@@ -126,8 +126,6 @@ Auch hier gab es wieder Kodierungsfehler und html-Files, die nicht „geparst“
     * Die semantische Ähnlichkeit-Suche unabhängig der gefunden Cluster, ist aufgrund sehr langer Rechenzeiten (circa 3 Minuten pro Anfrage) nur unter erheblichen Rechenzeitoptimierungen für eine größere Skalierung im Handelsregister denkbar. 
 
 
-
-
 ## Dateien
 
 ### OCR.csv
