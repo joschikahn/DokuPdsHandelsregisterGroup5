@@ -156,9 +156,10 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
  
   * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen. 
   ![Erkennbarer Cluster-Zusammenhang: z.B. Handel Mode/Textilien]("https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_17_keywords.png")
-  ![Erkennbarer Cluster-Zusammenhang: Handwerk o.ä.](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_4_keywords.png)
-  ![Mittel erkennbarer Cluster-Zusammenhang: Immobilien](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_18_keywords.png)
-  
+  ![Erkennbarer Cluster-Zusammenhang: z.B. Handwerk ](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_4_keywords.png)
+  ![Mittel erkennbarer Cluster-Zusammenhang: z.B. Wohnungs-und Grundstückswesen](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_18_keywords.png)
+  ![Schlecht erkennbarer Cluster-Zusammenhang](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_3_keywords.png)
+
    
   Ergänzende Information dazu im Notebook als Kommentar / Markdown.
 
