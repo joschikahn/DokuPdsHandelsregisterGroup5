@@ -3,20 +3,17 @@
 ## Vorbereitung
 
 ### Notebook: Reading TIF-Files by OCR
-In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und einem Dataframe df gespeichert. Dieses wurde exportiert um es in der App für die Funktion "Dateisuche in TIF-Dateien" zu nutzen.
+In diesem Notebook werden alle TIF-Dateien mittels OCR ausgelesen und in einem Dataframe df gespeichert. Dieses wurde exportiert, um es in der Applikation für die Funktion "Dateisuche in TIF-Dateien" zu verwenden.
 
 #### Anwendungsfall
-Im Datensatz wurde einige TIF-Datein mitgeliefert. Diese enthalten Zusatzinformationen, wie beispielsweiße das zugehörige Amtsgericht oder die Liste der Gesellschafter. Um dem Endnutzer diese Informationen zugänglich zu machen, wurden diese mit Hilfe von OCR ausgelesen und dem jeweiligen Unternehmen zugeordnet.
+Im Datensatz sind mehrere TIF-Dateien enthalten. Diese enthalten zusätzliche Informationen, wie z.B. das zugehörige Amtsgericht oder die Liste der Gesellschafter. Um diese Informationen dem Endnutzer zur Verfügung zu stellen, wurden diese mittels OCR ausgelesen und dem jeweiligen Unternehmen zugeordnet.
 
 
 #### Umsetzung 
-Um die Informationen aus den TIF-Dateien zu extrahieren, wurden iterativ alle sich im Datensatz befindlichen TIF-Datein durchlaufen und derern Inhalt dem zugehörogen Unternehmen zu geordnet. Im daraus enstehenden Dataframe befinden sich Informationen über Id, Datei-Name & -Pfad, sowie der extrahierte Inhalt als String. Dieses Datframe wird anschließed verwendet, um über 2 Input Felder passende Informationen zu finden und anzeigen zu lassen.
-Nutzer haben die Möglichkeit Unternehmensname oder Id eines Unternehmen, sowie ein Stcihwort des zu findenden Inhalts einzugeben.
-Nach Klicken auf den Suchbutton, werden alle gefundenen Dateien angezeigt und können mit einem Klick auf den Dateinamen heruntergeladen werden.
+Um die Informationen aus den TIF-Dateien zu extrahieren, wurden iterativ alle im Datensatz vorhandenen TIF-Dateien durchlaufen und deren Inhalte dem zugehörigen Unternehmen zugeordnet. Der daraus resultierende Dataframe enthält Informationen über ID, Dateiname & Pfad sowie den extrahierten Inhalt als String. Dieser Dataframe wird dann verwendet, um über 2 Eingabefelder die entsprechenden Informationen zu finden und anzuzeigen. Der Benutzer hat die Möglichkeit, den Firmennamen oder die Firmen-ID sowie ein Stichwort des zu findenden Inhalts einzugeben. Nach Anklicken des Suchbuttons werden alle gefundenen Dateien angezeigt und können durch Anklicken des Dateinamens heruntergeladen werden.
 #### Evaluation und Ausblick 
-Die Funktion sollte ursprünglich nicht nur für den Inhalt der TIF-Datein verfügbar sein, sondern auch für PDF-Dateien welche sich im Datensatz befinden. Allerdings hatten wir bei Installation von packages, welche für das Auslesen von PDF-Dateien notwendig sind, lokal Probleme. Es wäre zwar möglich gewessen dies packages in Colab zu installieren, allerdings was es auf Grund von begrenzter Resourcen nicht praktikabel den kompletten Datensatz auszulesen. 
-Außerdem werden nicht alle Wörter zu 100% richtig erkannt. Um diesen Problem entgegen zu wirken, haben wir uns dazu entschieden, dass die Suchstrings nicht zu 100% mit matchen müssen, sondern ein Fuzzy-Score von 85 ausreicht. 
-Ausblick: Es wäre wünschenswert eine Möglichkeit zu finden auch den Inhalt der PDF-Dateien zu extrahieren und die Texterkenung weiter zu verbessern. Außerdem könnte man die Funktion direkt in die Unternehmenssuche integrieren, sodass nachdem ein Unterehmen gefunden wurde , direkt auch nach Zusatzinforationen aus den Dokumenten gesucht werden kann.
+Evaluation und Ausblick
+Ursprünglich sollte die Funktion nicht nur für den Inhalt von TIF-Dateien zur Verfügung stehen, sondern auch für PDF-Dateien, die sich im Datensatz befinden. Wir hatten jedoch lokale Probleme bei der Installation der Pakete, die für das Auslesen der PDF-Dateien notwendig sind. Es wäre zwar möglich gewesen, diese Pakete in Colab zu installieren, jedoch war es aufgrund der begrenzten Ressourcen nicht praktikabel, den gesamten Datensatz auszulesen. Außerdem werden nicht alle Wörter zu 100% richtig erkannt. Um diesem Problem entgegenzuwirken haben wir uns dazu entschieden, dass die Suchstrings nicht zu 100% übereinstimmen müssen, sondern ein Fuzzy Score von 85 ausreicht. Ausblick: Es wäre wünschenswert, eine Möglichkeit zu finden, auch den Inhalt von PDF-Dateien zu extrahieren und die Texterkennung weiter zu verbessern. Außerdem könnte die Funktion direkt in die Unternehmenssuche integriert werden, so dass nach dem Finden eines Unternehmens direkt nach weiteren Informationen aus den Dokumenten gesucht werden kann.
 
 ### Notebook: Bilanzen
 In diesem Notebook wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
