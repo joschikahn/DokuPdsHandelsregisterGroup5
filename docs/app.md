@@ -27,6 +27,14 @@ Um an die gewünschten Informationen aus den Daten zu kommen, ist es notwendig, 
 * Danach muss er mit Hilfe einer Sliceumgebung auswählen, wie viele Vorschläge angezeigt werden sollen. 
 * Im nächstem Schritt, wird der Suchbegriff im Textfeld eingeben. Die Suchfunktion sucht nun die ähnliche Begriffe heraus und gibt diese automatisch im Dropdownmenü weiter. Je nachdem, ob eine Person oder ein Unternehmen gesucht werden soll, gibt die Funktion verschieden Informationen zurück, damit der User die gewünschte Person oder das gewünschte Unternehmen auswählen kann. Bei einer Suchanfrage zum Unternehmen wird der Suchscore, der Name des Unternehmen sowie der Ort zurückgeben. Außerdem wird die id der Organisation angezeigt, dies ist aber nur für die nachfolgenden Funktionen relevant.
 * Der User kann nun auf dem Butoon Suchen klicken und orderid wird weitergeben. Bei einer Personensuche, wird der Suchscore, der Name der Person, das Geburtsdatum der Ort und die id der Person zurückgeben. Die id ist wiederum nur für die nachfolgenden Funktionen relevant. Der Code für diese Funktion ist unter 'Definition der Suchfunktion' zu finden.
+#### Evaluation und Ausblick
+* Die Suche nach Unternehmen oder nach Personen ist gut umgesetzt, bei Testeingaben wurden die gewünschten Unternehmen oder Personen angezeigt.
+* Dennoch ist das UX Design im Frontend nicht einwandfrei.
+* Es sind zu viele Schritte nötig um die gewünschten Begriff zu finden.
+* Eine bessere Möglichkeit wäre Ein Dropdownmenü, wo man seinen gewünschte Person oder Unternehmen eingeben kann, ohne zuvor dies zuvor auswählen zu müssen.
+* Außerdem muss die id mitgeben werden, da dies für Dashboard exenziell ist.
+* Dennoch ist zu betonen, dass die funktionalität der Sucheingabe gegeben ist.
+### Funktion Dashboard 'Daten zur Person' siehe Definition Personendaten und Definition des Netzwerkgraphen
 
 ### Funktion: Suche nach Umkreis 
 
