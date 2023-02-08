@@ -43,7 +43,7 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 
 * Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
 * Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert
-* 
+
 #### Evaluation und Ausblick
 * In den meisten Fällen hat das Auslesen der Dateien gut funktioniert
 * Aber dennoch ergaben sich einige Probleme
@@ -134,9 +134,9 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
   Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
   1. Nach unverarbeiteter Geschäftszweck 
   2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
-  Entsprechend der Art werden dafür TF-IDF-Vektoren gebildet (sklearn tfidf vectorizer). Anschließend wird darauf der k-Means-Algorithmus angewendet.
+  Entsprechend der Art werden dafür TF-IDF-Vektoren gebildet (*sklearn tfidf vectorizer*). Anschließend wird darauf der k-Means-Algorithmus angewendet.
   Auch hierbei werden verschiedenen Varianten mit verschiedenen Granularität durchgeführt: 
-   * Grob : 5 Cluster
+   * Grob: 5 Cluster
    * Mittel: 20 Cluster 
    * Fein: 100 Cluster
    * Sehr fein: 200 Cluster 
@@ -152,15 +152,20 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
 
 ####  Evaluation und Ausblick 
   6753 Unternehmen (Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
-  * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit). 
+  * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit).
+ 
   * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen. 
+  ![Erkennbarer Cluster-Zusammenhang: z.B. Handel Mode/Textilien]("https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_17_keywords.png")
+  ![Erkennbarer Cluster-Zusammenhang: Handwerk o.ä.](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_4_keywords.png)
+  ![Mittel erkennbarer Cluster-Zusammenhang: Immobilien](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_18_keywords.png)
+  
+   
   Ergänzende Information dazu im Notebook als Kommentar / Markdown.
 
 ## Dateien
 
 ### OCR.csv
 Diese CSV-Datei repräsentiert folgendes Dataframe "bild ocr"
-
 In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. Die Datei stammt aus dem Notebook 
 
 ### ....csv
