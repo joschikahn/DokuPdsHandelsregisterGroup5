@@ -5,6 +5,45 @@
 ### Notebook: Reading TIF-Files by OCR
 In diesem Notebook werden alle TIF-Dateien mit Hilfe von OCR ausgelesen und einem Dataframe df gespeichert. Dieses wurde exportiert um es in der App für die Funktion "Dateisuche in TIF-Dateien" zu nutzen.
 
+#### Anwendungsfall
+Im Datensatz wurde einige TIF-Datein mitgeliefert. Diese enthalten Zusatzinformationen, wie beispielsweiße das zugehörige Amtsgericht oder die Liste der Gesellschafter. Um dem Endnutzer diese Informationen zugänglich zu machen, wurden diese mit Hilfe von OCR ausgelesen und dem jeweiligen Unternehmen zugeordnet.
+
+
+#### Umsetzung 
+Um die Informationen aus den TIF-Dateien zu extrahieren, wurden iterativ alle sich im Datensatz befindlichen TIF-Datein durchlaufen und derern Inhalt dem zugehörogen Unternehmen zu geordnet. Im daraus enstehenden Dataframe befinden sich Informationen über Id, Datei-Name & -Pfad, sowie der extrahierte Inhalt als String. Dieses Datframe wird anschließed verwendet, um über 2 Input Felder passende Informationen zu finden und anzeigen zu lassen.
+Nutzer haben die Möglichkeit Unternehmensname oder Id eines Unternehmen, sowie ein Stcihwort des zu findenden Inhalts einzugeben.
+Nach Klicken auf den Suchbutton, werden alle gefundenen Dateien angezeigt und können mit einem Klick auf den Dateinamen heruntergeladen werden.
+#### Evaluation und Ausblick 
+Die Funktion sollte ursprünglich nicht nur für den Inhalt der TIF-Datein verfügbar sein, sondern auch für PDF-Dateien welche sich im Datensatz befinden. Allerdings hatten wir bei Installation von packages, welche für das Auslesen von PDF-Dateien notwendig sind, lokal Probleme. Es wäre zwar möglich gewessen dies packages in Colab zu installieren, allerdings was es auf Grund von begrenzter Resourcen nicht praktikabel den kompletten Datensatz auszulesen. 
+Außerdem werden nicht alle Wörter zu 100% richtig erkannt. Um diesen Problem entgegen zu wirken, haben wir uns dazu entschieden, dass die Suchstrings nicht zu 100% mit matchen müssen, sondern ein Fuzzy-Score von 85 ausreicht. 
+Ausblick: Es wäre wünschenswert eine Möglichkeit zu finden auch den Inhalt der PDF-Dateien zu extrahieren und die Texterkenung weiter zu verbessern. Außerdem könnte man die Funktion direkt in die Unternehmenssuche integrieren, sodass nachdem ein Unterehmen gefunden wurde , direkt auch nach Zusatzinforationen aus den Dokumenten gesucht werden kann.
+
+### Notebook: Bilanzen
+In diesem Notebook wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
+#### Anwendungsfall
+In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Dateien vorhanden. Für die Bilanz sind diese wichtig, die unter dem Namen „Finanzberichte“ abgespeichert sind. Ziel war es so viele Informationen wie möglich aus diesen Dateien zu ermitteln. Hierbei ist anzumerken, dass diese html Dateien unterschiedlich strukturiert sind. Im Normalfall sind die Daten der Bilanz wie Anlagevermögen, Umlaufvermögen, Verbindlichkeiten etc. vorhanden.
+#### Umsetzung
+* Zuerst wurden die benötigten Dateien ermittelt, die analysiert werden sollen. Dabei wurden die Files herausgefiltert, die 'rechnungslegung-finanzberichte.html' in ihren Namen beinhalten.
+* Html-Parsing mit BeautifulSoup: Die gewünschten Informationen wurden mithilfe von htlm Parsing ermittelt. Dabei wurde sich hauptsächlich auf die tables der html-Dateien fokussiert, da diese die gewünschten Inhalte zum Anlagevermögen, Umlaufvermögen, Eigenkapital, Verbindlichkeiten, etc. beinhalten. 
+* Die zeitlichen Daten, wann die Bilanz erstellt, wurde nachträglich hinzufügt, da erkennbar war, dass diese Daten in den Tabellen der html-Dateien nicht immer ermittelt werden konnten.
+* Zum Schluss wurden zwei Plots generiert, der erste Plot zeigt den zeitlichen Verlauf des Bilanzvolumens. Der zweite Plot den zeitlichen Verlauf des Gewinns
+
+![Gewinn nach Bilanz](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Gewinn2.png)
+![Bilanzensumme](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/Bilansum.png)
+
+
+* Diese sollten auch in die Gradio-App integriert werden, sind aber aufgrund Problemen bei der Gradio-Integration nur im Notebook abgebildet.
+* Die gewonnenen Daten wurden in der Datei Bilanzen.csv abgespeichert.
+
+#### Evaluation und Ausblick
+* In den meisten Fällen hat das Auslesen der Dateien gut funktioniert
+* Aber dennoch ergaben sich einige Probleme
+* Die Strukturen der html-Tabellen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
+* Auch die Formatierung der Tabellen ist nicht immer gleich
+* Des Weiteren, waren auch keine html-Dateien für das jeweilige Unternehmen vorhanden
+Diese Faktoren haben dazugeführt, dass einige Bilanzdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukunft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+
+
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
 In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt, wie in Abschnitt *App* genauer beschrieben. Die Klassifizierung aller Firmen findet hier statt und wird im Dataframe *branchen_bestimmung_base_keywords.csv* abgespeichert. Die Branchenebenen und Bezeichnugen werden in diesem Notebook aufbereitet sowie die Klassifikation vorbereitet. 
 
