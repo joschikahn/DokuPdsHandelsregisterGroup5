@@ -168,11 +168,26 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
 Diese CSV-Datei repräsentiert folgendes Dataframe "bild ocr"
 In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. Die Datei stammt aus dem Notebook 
 
-### ....csv
-Inhalt der CSV... stammmt aus Notebook X
+### Bilanzen.csv
+Inhalt der CSV stammmt aus Notebook Bilanzen
 
-### ....csv
-Inhalt der CSV... stammmt aus Notebook X
+### merged_un_roles_personspd.csv
+Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+
+### persons.csv
+Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+
+### Gegenstand_oder_Geschaeftszweck_all.csv
+Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+
+### count_personsid.csv
+Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+
+### DataFrame_Changes.csv
+Inhalt der CSV stammmt aus Notebook Registerbekanntmachungen_html
+
+
+
 
 
 
