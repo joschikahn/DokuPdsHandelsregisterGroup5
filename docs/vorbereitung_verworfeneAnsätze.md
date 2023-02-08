@@ -95,7 +95,7 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
 
 ## Verworfene Ansätze
 
-### Notebook: VERWORFEN Reading TIF- and PDF-Files by OCR
+### Notebook: reading_tif_and_pdf_files_by_orc
  In diesem Notebook wurde versucht alle TIF- & PDF-Dateien mit Hilfe von OCR ausgelesen. Der Ansatz wurde verworfen weil es Probleme bei Installation & Nutzung der benötigten packages auf dem lokalen Windows System gab. Bei, Ausführen in Google Colab, sollte der Code funktionieren und somit nicht nur TIF-, sondern auch PDF-Dateien ausgelesen werden können.
 
 ### Notebook: branchen_bestimmung_nlp_semantic_similarity
@@ -120,7 +120,6 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
     * Die semantische Ähnlichkeit-Suche unabhängig der gefunden Cluster, ist aufgrund sehr langer Rechenzeiten (circa 3 Minuten pro Anfrage) nur unter erheblichen Rechenzeitoptimierungen für eine größere Skalierung im Handelsregister denkbar. 
 
 ### Notebook: k_means_clustering_nach_tfidf
-
   Dieses Notebook beschreibt ein Clustering Ansatz der Unternehmen mit einem unsupervised Learning Ansatz. Anhand des Geschäftszweckes werden die Firmen in verschiedener Granularität in Cluster eingeteilt. 
 
 #### Anwendungsfall
@@ -146,7 +145,7 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
   ![KMeans mit 5 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_5means_keywords_pca.png)
   ![KMeans mit 20 Clustern - mit PCA visualisiert](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/visualisierung_20means_keywords_pca.png)
 ####  Evaluation und Ausblick 
-  6753 Unternehmen (Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
+  6753 Unternehmen (= alle Firmen mit Geschäftszweck) sind auf diese Art in Cluster eingeteilt worden. Dabei sind insbesondere zwei Problem aufgetreten:
   * Teilweise sehr ungleichmäßige Cluster (Sehr volle und sehr leere Cluster). Lässt sich durch verschiedene Iterationen und verschiedene Initiale Cluster-Zentren beeinflussen (auf Kosten der Rechenzeit).
  
   * Cluster sind nicht immer logisch nachvollziehbar. Bei gefundenen Cluster ist der Zusammenhang zwischen den zugeordneten Firmen teilweise nicht logisch nachvollziehbar und somit kein Oberbegriff bestimmbar. Passender Zusammenhang feststellbar: Clustering nach Keywords, WordCloud-Darstellung nach Unternehmensnamen. 
@@ -154,9 +153,8 @@ Für circa 96 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Fü
   ![Erkennbarer Cluster-Zusammenhang: z.B. Handwerk ](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_4_keywords.png)
   ![Mittel erkennbarer Cluster-Zusammenhang: z.B. Wohnungs-und Grundstückswesen](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_18_keywords.png)
   ![Schlecht erkennbarer Cluster-Zusammenhang](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/means20_cluster_3_keywords.png)
-
-   
   Ergänzende Information dazu im Notebook als Kommentar / Markdown.
+
 
 ## Dateien
 
