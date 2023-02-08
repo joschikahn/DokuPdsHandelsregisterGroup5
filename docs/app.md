@@ -7,7 +7,7 @@ Datenextraktion, -aufbereitung und die Vorbereitung der Einzelfunktionen sind ni
 ## Notebook
 
 ### Funktion: Dateisuche in TIF-Dateien
-Die im Notebook *Reading TIF-Files by OCR* in [Vorbereitung & verworfener Code](#Vorbereitung-&-verworfener-Code) ausgelesenen Informationen werden hier verwendet um heraus zu finden, ob in den TIF-Dateien noch zusätzliche Informationen zu einem Unternehmen verfügbar sind. Wenn dies der Fall ist, kann die Datei mit einem Klick heruntergeladen und die Information ausgelesen werden.
+Die im Notebook [Reading TIF-Files by OCR](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze/#notebook-reading-tif-files-by-ocr) ausgelesenen Informationen werden hier verwendet um heraus zu finden, ob in den TIF-Dateien noch zusätzliche Informationen zu einem Unternehmen verfügbar sind. Wenn dies der Fall ist, kann die Datei mit einem Klick heruntergeladen und die Information ausgelesen werden.
 
 ### Funktion: Branchenklassifikation WZ-2008
 
