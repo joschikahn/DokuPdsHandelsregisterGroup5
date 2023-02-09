@@ -4,6 +4,9 @@ In diesem Notebook sind die finalen Anwendungen zusammengefügt. Die Funktionali
 Nachfolgend werden die Funktionalitäten der App, sowie deren Umsetzung und Evaluation beschrieben. 
 Datenextraktion, -aufbereitung und die Vorbereitung der Einzelfunktionen sind nicht in diesem Notebook enthalten, sondern werden unter Abschnitt [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze) durchgeführt und ausführlicher dokumentiert. 
 
+**Die Frontend-Anwendung kann durch Ausführung aller Zellen in *App.ipynb* unabhängig vom Device gestartet und selbst getestet werden**. 
+Alle verwendeten Daten liegen im Folder App vor und es müssen keine Dateipfade angepasst werden. Es muss lediglich dafür gesorgt werden, dass die Importe der ersten Zelle gefunden worden (durch nachinstallieren einzelner libraries wie *fuzzywuzzy* über *pip*)
+
 ## Notebook
 
 ### Funktion: Dateisuche in TIF-Dateien
@@ -54,7 +57,7 @@ Beispiele für gut funktionierende Fragen:
     * Wie hoch ist das Kapital von der *Meyer GmbH*?
     * In welcher Branche ist die Firma *Metallbau Sorgenfrei* tätig? 
     * Was macht die *Beispiel GmbH*?
-    * Wie ist der Status von *Metzgerei Dannemann? 
+    * Wie ist der Status von *Metzgerei Dannemann*? 
 
     * In welchen Unternehmen ist *Dietmar Hopp* tätig? 
     * Welche Rolle hat *Franz Müller*? 
@@ -68,7 +71,7 @@ Schwer zu beantwortende Fragen:
     * Wie viel Firmen haben die Branche "Herstellung von Metall"? 
 
 Ausblick: 
-    * Erweiterung der Funktionalitäten durch integration von mehr context
+    * Erweiterung der Funktionalitäten durch integration von mehr context (z.B: Bilanzdaten nicht integriert, obwohl extrahiert aus HTML)
     * Fine-Tuning: Vorgeben von Fragen den formatierten Context-String und den richtigen Antworten (und dessen Position im Context String)
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
@@ -156,5 +159,3 @@ Zwischengespeicherte Unternehmenshistorie-Plot
 
 ### empty_output.png
 Für Chatbot-Darstellung benötigt, wenn kein Image-Output
-
-
