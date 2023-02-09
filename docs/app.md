@@ -31,9 +31,11 @@ Wir haben keine gelabelten Daten verwendet, konnten dennoch gute Ergebnisse erzi
 Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenzeit stellt ein weitere Optimierungspotential dar, insbesondere auf der Granularität Sub-,Sub-Sub- oder Sub-Sub-Sub-Branche. In einem späteren Einsatz ist dies allerdings nicht von zu einschränkender Bedeutung, da diese Klassifikation nur einmalig durchgeführt werden (bei Anlegen). 
 
 Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner. 
-![Vergleich Accuracy](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
 
-![Vergleich Accuracy within Top 3](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
+![Vergleich Accuracy:  Spacy vs. Zero-Shot](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
+
+![Vergleich Accuracy within Top 3: Spacy vs. Zero-Shot](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
+
 
 
 ### Funktion: Q-A-Chatbot
