@@ -4,7 +4,7 @@ In diesem Notebook sind die finalen Anwendungen zusammengefügt. Die Funktionali
 Nachfolgend werden die Funktionalitäten der App, sowie deren Umsetzung und Evaluation beschrieben. 
 Datenextraktion, -aufbereitung und die Vorbereitung der Einzelfunktionen sind nicht in diesem Notebook enthalten, sondern werden unter Abschnitt [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze) durchgeführt und ausführlicher dokumentiert. 
 
-**Die Frontend-Anwendung kann durch Ausführung aller Zellen in *App.ipynb* unabhängig vom Device gestartet und selbst getestet werden**. 
+**Die Frontend-Anwendung kann durch Ausführung aller Zellen in *App.ipynb* gestartet und selbst getestet werden**. 
 Alle verwendeten Daten liegen im Folder App vor und es müssen keine Dateipfade angepasst werden. Es muss lediglich dafür gesorgt werden, dass die Importe der ersten Zelle gefunden worden (durch nachinstallieren einzelner libraries wie *fuzzywuzzy* über *pip*)
 
 ## Notebook
