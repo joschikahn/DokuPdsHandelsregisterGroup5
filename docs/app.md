@@ -4,6 +4,9 @@ In diesem Notebook sind die finalen Anwendungen zusammengefügt. Die Funktionali
 Nachfolgend werden die Funktionalitäten der App, sowie deren Umsetzung und Evaluation beschrieben. 
 Datenextraktion, -aufbereitung und die Vorbereitung der Einzelfunktionen sind nicht in diesem Notebook enthalten, sondern werden unter Abschnitt [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze) durchgeführt und ausführlicher dokumentiert. 
 
+**Die Frontend-Anwendung kann durch Ausführung aller Zellen in *App.ipynb* gestartet und selbst getestet werden**. 
+Alle verwendeten Daten liegen im Folder App vor und es müssen keine Dateipfade angepasst werden. Es muss lediglich dafür gesorgt werden, dass die Importe der ersten Zelle gefunden worden (durch nachinstallieren einzelner libraries wie *fuzzywuzzy* über *pip*)
+
 ## Notebook
 
 ### Funktion: Dateisuche in TIF-Dateien
@@ -14,7 +17,7 @@ Die im Notebook [Reading TIF-Files by OCR](https://dokupdshandelsregistergroup5.
 Anhand einer Freitexteingabe können die Firmen in die offiziell WZ-2008 Branchenlandschaft eingeordnet werden. Entsprechend der verschiedener Granularität (Abschnitt, Branche, Sub-, Sub-Sub-, Sub-Sub-Sub-Branche) werden Vorschläge inklusive der WZ2008-Codes für eine Einordnung geliefert. Genauere Erklärung,  Vorgehensweise und Auswertung in [Vorbereitung und verworfene Ansätze](https://dokupdshandelsregistergroup5.readthedocs.io/en/latest/vorbereitung_verworfeneAns%C3%A4tze).
 Auf Basis der Branchenklassifikation wird außerdem ein Ähnlichkeitssuche durchgeführt. Im Tab *ähnliche Firmen finden* lässt sich gezielt nach Unternehmen aus der selben Branche im Umkreis suchen. 
 #### Anwendungsfall
-Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. Mit insgesamt über 1200 verschiedene Branchenbezeichnungen verliert man schnell den Überblick und eine Selection per Dropdown oder 
+Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann sehr unübersichtlich sein. Mit insgesamt über 1200 verschiedene Branchenbezeichnungen verliert man schnell den Überblick. Eine Checkbox-Auswahl wird dadurch ebenfalls sehr unübersichtlich und mühsam.  
 ![Branchenlandschaft nach WZ-2008](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/wz-2008_klassifizierung.png). 
 1. Einordnen der vorhandenen Firmen z.B für Filteroperationen oder Ähnlichkeit-Suche. Welche ähnliche Firmen gibt es?
 2. Für neue hinzukommenden bzw. neugegründete Firmen bestimmen in welche Branche sie eingeordnet werden sollen. 
@@ -27,9 +30,11 @@ Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation in
 Wir haben keine gelabelten Daten verwendet, konnten dennoch gute Ergebnisse erzielen. Insbesondere besser als der Ansatz über einen Similarity-Abgleich. Vor allem bei *guten* Firmenbeschreibungen sind die gefundenen Branchen zutreffend. Bei Firmenbeschreibungen von schlechter Qualität sind die gefundenen Klassifikationen entsprechen auch schlechter. 
 Ausblick: Labelling möglich für deutliche Performanceverbesserung. Die Rechenzeit stellt ein weitere Optimierungspotential dar, insbesondere auf der Granularität Sub-,Sub-Sub- oder Sub-Sub-Sub-Branche. In einem späteren Einsatz ist dies allerdings nicht von zu einschränkender Bedeutung, da diese Klassifikation nur einmalig durchgeführt werden (bei Anlegen). 
 
-Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner. 
-![Vergleich Accuracy](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
-![Vergleich Accuracy within Top 3](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
+Im Vergleich zum Ansatz über Spacy-Sentence-Similarity zeigt sich der *XML-Roberta-Zero-Shot-Classificator* als Gewinner (oben: Vergleich Accuracy:  *Spacy vs. Zero-Shot*, unten *Vergleich Accuracy within Top 3: Spacy vs. Zero-Shot*)
+
+![Vergleich Accuracy:  Spacy vs. Zero-Shot](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_1_vergleich_spacy_zsc_branchenklass.png)
+
+![Vergleich Accuracy within Top 3: Spacy vs. Zero-Shot](https://raw.githubusercontent.com/joschikahn/DokuPdsHandelsregisterGroup5/main/docs/Data/acc_3_vergleich_spacy_zsc_branchenklass.png)
 
 
 ### Funktion: Q-A-Chatbot
@@ -53,7 +58,7 @@ Beispiele für gut funktionierende Fragen:
     * Wie hoch ist das Kapital von der *Meyer GmbH*?
     * In welcher Branche ist die Firma *Metallbau Sorgenfrei* tätig? 
     * Was macht die *Beispiel GmbH*?
-    * Wie ist der Status von *Metzgerei Dannemann? 
+    * Wie ist der Status von *Metzgerei Dannemann*? 
 
     * In welchen Unternehmen ist *Dietmar Hopp* tätig? 
     * Welche Rolle hat *Franz Müller*? 
@@ -67,7 +72,7 @@ Schwer zu beantwortende Fragen:
     * Wie viel Firmen haben die Branche "Herstellung von Metall"? 
 
 Ausblick: 
-    * Erweiterung der Funktionalitäten durch Integration von mehr context
+    * Erweiterung der Funktionalitäten durch integration von mehr context (z.B: Bilanzdaten nicht integriert, obwohl extrahiert aus HTML)
     * Fine-Tuning: Vorgeben von Fragen den formatierten Context-String und den richtigen Antworten (und dessen Position im Context String)
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
@@ -155,5 +160,3 @@ Zwischengespeicherte Unternehmenshistorie-Plot
 
 ### empty_output.png
 Für Chatbot-Darstellung benötigt, wenn kein Image-Output
-
-
