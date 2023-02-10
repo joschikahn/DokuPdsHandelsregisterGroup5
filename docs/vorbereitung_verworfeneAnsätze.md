@@ -40,11 +40,11 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 * Die Strukturen der html-Tabellen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
 * Auch die Formatierung der Tabellen ist nicht immer gleich
 * Des Weiteren, waren auch keine html-Dateien für das jeweilige Unternehmen vorhanden
-Diese Faktoren haben dazugeführt, dass einige Bilanzdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukunft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+Diese Faktoren haben dazu geführt, dass einige Bilanzdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukunft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
 
 
 ### Notebook: Zero-Shot-Classification Branche WZ-2008
-In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt, wie in Abschnitt *App* genauer beschrieben. Die Klassifizierung aller Firmen findet hier statt und wird im Dataframe *branchen_bestimmung_base_keywords.csv* abgespeichert. Die Branchenebenen und Bezeichnugen werden in diesem Notebook aufbereitet sowie die Klassifikation vorbereitet. 
+In diesem Notebook wird die Umsetzung der Branchenklassifikation inklusive der verschiedenen Vorbereitungsschritte beschreiben bzw. ausgeführt, wie in Abschnitt *App* genauer beschrieben. Die Klassifizierung aller Firmen findet hier statt und wird im Dataframe *branchen_bestimmung_base_keywords.csv* abgespeichert. Die Branchenebenen und Bezeichnungen werden in diesem Notebook aufbereitet sowie die Klassifikation vorbereitet. 
 
 ### Notebook: Bilanzen
 In diesem Notebook wurde die relevanten Daten für die Bilanzen des jeweiligen Unternehmens ermittelt. Da diese Dateien html-Dateien sind, wird html-Parsing angewendet.
@@ -67,7 +67,7 @@ In den Daten, die für das Projekt mitgegeben wurden, sind unter anderem hmtl-Da
 * Die Strukturen der html-Tabellen ist nicht immer einheitlich, deshalb ist es schwierig die Daten automatisiert zu ermitteln
 * Auch die Formatierung der Tabellen ist nicht immer gleich
 * Des Weiteren, waren auch keine html-Dateien für das jeweilige Unternehmen vorhanden
-Diese Faktoren haben dazugeführt, dass einige Bilanzdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukunft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
+Diese Faktoren haben dazu geführt, dass einige Bilanzdaten nicht oder falsch ermittelt wurden. Aber dennoch ist hier hervorzuheben, dass dies in den meisten Fällen funktioniert. In der Zukunft sollte der Code erweitert werden, um alle Bilanzdaten zu ermitteln.
 
 ### Notebook: XML_to_DatFrame
 In diesem Notebook wird das Parsing von xml-Dateien behandelt. Xml-Dateien sind strukturiert und können somit mit lxml.etree ermittelt werden. Es wurden verschiedene Informationen zu den Files ermittelt. Zum einen, welche Personen im Unternehmen tätig sind, ihre dazugehörigen Rollen und die Geschäftszwecke des Unternehmens. Andere Daten wie Anschrift des Unternehmens wurde mithilfe der json-Datei ermittelt. Für das Notebook waren die Daten aus der json-Datei nötig, um eine CSV Datei zu generieren.
@@ -107,7 +107,7 @@ Auch hier gab es wieder Kodierungsfehler und html-Files, die nicht „geparst“
   Inhaltliche ähnliche Unternehmen sollen in ein Cluster gemacht werden. *Welche ähnliche Unternehmen gibt es wie das Unternehmen "Müller Heizungsbau GmbH?".
   Diese können dann beispielsweise als Vorschläge empfohlen werden. Vor allem mit Umkreissuche sehr interessant: z.B. *In der Umgebung gibt es folgende Ähnliche Unternehmen*
 #### Umsetzung 
-  Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz.Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
+  Der Geschäftszweck dient als Grundlage für diesen unsupervised learning Ansatz. Weiter wird auf zwei verschiedenen Art und Weisen das Clustering vorgenommen. 
   1. Nach unverarbeiteter Geschäftszweck 
   2. Nach auf Schlagwörter reduzierte Geschäftszweck: Nur Nomen und ohne aussagelose Wörter wie *Unternehmen*, *Gesellschaft*, *GmbH* usw. 
   Entsprechend der Art werden dafür TF-IDF-Vektoren gebildet (*sklearn tfidf vectorizer*). Anschließend wird darauf der k-Means-Algorithmus angewendet.
@@ -171,28 +171,28 @@ Diese CSV-Datei repräsentiert folgendes Dataframe "bild ocr"
 In "content" sind hierbei die Inhalte aller extrahierten TIF-Dateien enthalten. Die Datei stammt aus dem Notebook 
 
 ### Bilanzen.csv
-Inhalt der CSV stammmt aus Notebook Bilanzen
+Inhalt der CSV stammt aus Notebook Bilanzen
 
 ### merged_un_roles_personspd.csv
-Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+Inhalt der CSV stammt aus Notebook XML_to_Dataframe
 
 ### persons.csv
-Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+Inhalt der CSV stammt aus Notebook XML_to_Dataframe
 
 ### Gegenstand_oder_Geschaeftszweck_all.csv
-Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+Inhalt der CSV stammt aus Notebook XML_to_Dataframe
 
 ### count_personsid.csv
-Inhalt der CSV stammmt aus Notebook XML_to_Dataframe
+Inhalt der CSV stammt aus Notebook XML_to_Dataframe
 
 ### DataFrame_Changes.csv
-Inhalt der CSV stammmt aus Notebook Registerbekanntmachungen_html
+Inhalt der CSV stammt aus Notebook Registerbekanntmachungen_html
 
 ### branchen_bestimmung_base_keywords.csv
 Grundlage für Branchenklassifikation mit Zero-Shot, Branchenklassifikation mit Spalcy-Similarity und für das unsuperviesed Clustering. Beinhaltet den Geschäftszweck und auf Nomen reduzierte und *aussagekräftig* (nicht *Unternehmen*, *Gesellschaft*, usw.) Schlagwörter.
 
 ### branchen_labels_code_oberkat.csv
-Beinhaltet die identifiziete Brachen-Bezeichnungen für alle Firmen mit Beschreibung inkl. der Oberkateogrie (Abschnitt) und den WZ2008 Branchencodes.
+Beinhaltet die identifizierte Brachen-Bezeichnungen für alle Firmen mit Beschreibung inkl. der Oberkateogrie (Abschnitt) und den WZ2008 Branchencodes.
 
 ### companies_desc_keywords_nlp_generated.csv
 Diese Datei beinhaltet die Ergebnisse der Branchenklassifizierungen nach dem Spacy-Similarity Ansatz. 

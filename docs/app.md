@@ -20,7 +20,7 @@ Die Branchenbezeichnungen nach der offiziellen Norm für Wirtschaftszweige kann 
 2. Für neue hinzukommenden bzw. neugegründete Firmen bestimmen in welche Branche sie eingeordnet werden sollen. 
 #### Umsetzung 
   1.  Zero-Shot-Classification verwendet basierend auf dem speziell auf die deutsche Sprache trainierten Modell *xml-roberta*. 
-  Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei best-passendeste Branchen werden gespeichert. Alle Firmen mit Beschreibung in die Branchen eingeordnet. Das lässt sich für Filteroperationen und für den Vorschlag von ähnlichen Unternehmen verwenden.
+  Da es nach WZ-2008 Norm über 1000 Branchenbezeichnungen gibt, habe für uns für einen Zero-Shot-Classification Ansatz entschieden. Das heißt, dass es nur die Branchenbezeichnungen vorgegeben werden. Die Firmen werden anhand der auf Schlagwörter reduzierte Geschäftszweck-Beschreibung in diese Branchen eingeteilt. Für alle Firmen mit Beschreibung wurden die Branchen (ebene Branche und Abschnitt) bestimmt. Die drei best-passendste Branchen werden gespeichert. Alle Firmen mit Beschreibung in die Branchen eingeordnet. Das lässt sich für Filteroperationen und für den Vorschlag von ähnlichen Unternehmen verwenden.
   1. Anwendung für neue Unternehmen: Anhand einer Freitext-Tätigkeitsbeschreibung werden Vorschläge für die Branche nach WZ-2008 und den offiziellen Branchencode bestimmt.
 #### Evaluation und Ausblick 
 Für alle Firmen mit Geschäftszweck (=6753 Firmen) wurde eine Klassifikation inkl. Bestimmung der Oberbranche durchgeführt. Bezüglich der Rechenzeit für das 'Durchklassifizieren' der Firmen' bietet sich noch kleinere Modelle an, da es in unserem Fall eine Rechendauer von ci. 30 Stunden hatte.
@@ -67,7 +67,7 @@ Schwer zu beantwortende Fragen:
     * Wie viel Firmen haben die Branche "Herstellung von Metall"? 
 
 Ausblick: 
-    * Erweiterung der Funktionalitäten durch integration von mehr context
+    * Erweiterung der Funktionalitäten durch Integration von mehr context
     * Fine-Tuning: Vorgeben von Fragen den formatierten Context-String und den richtigen Antworten (und dessen Position im Context String)
 
 ### Funktion: Dashboardsuche -> Backend siehe 'Definition der Suchfunktionen'
@@ -125,7 +125,7 @@ Firmen im Umkreis eines beliebigen Ortes suchen.
 Darüber hinaus: 
 Um die Rechenzeit zu optimieren wurde in die Umkreissuche ein vorgelagerter PLZ Abgleich eingerichtet. Dadurch reduziert sich die Anzahl der zu treffenden Vergleiche und die Rechenzeit bei Anfragen unter 100km Umkreis kann um circa 30 % verbessert werden. Ist der Suchradius unter 150 km, werden nur Firmen für den Vergleich betrachtet, die in potentiell erreichbaren PLZ-Gebieten liegen.
 #### Evaluation
-Für circa 95 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
+Für circa 95 Prozent aller Firmen konnten die Koordinaten ermittelt werden. Für knapp 500 Unternehmen konnten sich aufgrund veralteter bzw. falsch angegebenen Adressen keine Koordinaten ermittelt werde. Die im Handelsregister angegebenen stimmt nicht mit der Adresse in GeoPy (bzw. auch auf Google Maps) überein und lässt sich nicht ermitteln. Beispiel für nicht-konvertierbare Daten. *Am Salzufer 8,Berlin* (Handelsregister) anstatt *Salzufer 8, Berlin* in Maps. 
 
 ## Dateien
 
